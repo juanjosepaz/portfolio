@@ -164,7 +164,7 @@
 				'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
 				'</div>' +
 				'<div class="project-gallery">' +
-				'<img class="project-gallery-main" src="' + esc(p.screenshots[0]) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
+				'<img class="project-gallery-main" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover">' +
 				'<div class="project-gallery-thumbs">' + thumbs + '</div>' +
 				'</div>';
 		}
@@ -180,7 +180,7 @@
 				thumbs2 += '<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">';
 			});
 			return '<div class="project-gallery">' +
-				'<img class="project-gallery-main" src="' + esc(p.screenshots[0]) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
+				'<img class="project-gallery-main" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover">' +
 				'<div class="project-gallery-thumbs">' + thumbs2 + '</div>' +
 				'</div>';
 		}
@@ -212,7 +212,7 @@
 			modalMediaHTML(p) +
 			'<div class="project-modal-body">' +
 			'<div class="project-modal-title-row">' +
-			'<h3 class="project-modal-title">' + esc(p.title) + '</h3>' +
+			'<h2 class="project-modal-title">' + esc(p.title) + '</h2>' +
 			'<span class="project-badge project-badge-' + esc(p.category) + '">' + categoryLabel(p.category) + '</span>' +
 			'</div>' +
 			'<div class="project-modal-meta">' +
@@ -279,7 +279,7 @@
 			return 0;
 		}
 
-		setActive(0);
+		if (thumbs.length) thumbs[0].classList.add('is-active');
 	}
 
 	function closeModal() {

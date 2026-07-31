@@ -219,6 +219,16 @@
 	overflow-y: auto;
 	background: rgba(22, 22, 22, .9);
 	padding: 2rem 1rem;
+	animation: project-overlay-in .25s ease;
+}
+
+@keyframes project-overlay-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .project-modal {
@@ -226,7 +236,7 @@
 	flex-direction: column;
 	position: relative;
 	width: 100%;
-	max-width: 880px;
+	max-width: 900px;
 	max-height: 92vh;
 	overflow-y: auto;
 	background: #fff;
@@ -290,7 +300,7 @@
 .project-gallery-main {
 	display: block;
 	width: 100%;
-	aspect-ratio: 16 / 10;
+	aspect-ratio: 16 / 9;
 	object-fit: cover;
 	cursor: zoom-in;
 	background: #222;
