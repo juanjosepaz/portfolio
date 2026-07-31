@@ -71,7 +71,24 @@
 	border-radius: 6px;
 	overflow: hidden;
 	cursor: pointer;
-	transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+	transition: opacity .22s ease, transform .22s ease, box-shadow .2s ease, border-color .2s ease;
+	animation: project-card-in .45s ease backwards;
+}
+
+@keyframes project-card-in {
+	from {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.project-grid.is-fading .project-card {
+	opacity: 0;
+	transform: translateY(8px);
 }
 
 .project-card:hover,
@@ -95,6 +112,18 @@
 	height: 100%;
 	object-fit: cover;
 	transition: transform .3s ease;
+	background: linear-gradient(100deg, #2f2f2f 30%, #3b3b3b 50%, #2f2f2f 70%);
+	background-size: 200% 100%;
+	animation: project-cover-shimmer 1.2s linear infinite;
+}
+
+@keyframes project-cover-shimmer {
+	from {
+		background-position: 200% 0;
+	}
+	to {
+		background-position: -200% 0;
+	}
 }
 
 .project-card:hover .project-cover {
@@ -248,7 +277,7 @@
 @keyframes project-modal-in {
 	from {
 		opacity: 0;
-		transform: translateY(18px);
+		transform: translateY(18px) scale(.96);
 	}
 	to {
 		opacity: 1;
@@ -304,6 +333,18 @@
 	object-fit: cover;
 	cursor: zoom-in;
 	background: #222;
+	background: linear-gradient(100deg, #e8e8e8 30%, #f5f5f5 50%, #e8e8e8 70%);
+	background-size: 200% 100%;
+	animation: project-shimmer 1.2s linear infinite;
+}
+
+@keyframes project-shimmer {
+	from {
+		background-position: 200% 0;
+	}
+	to {
+		background-position: -200% 0;
+	}
 }
 
 .project-gallery-thumbs {
@@ -323,6 +364,9 @@
 	cursor: pointer;
 	opacity: .65;
 	transition: opacity .2s ease, box-shadow .2s ease;
+	background: linear-gradient(100deg, #e8e8e8 30%, #f5f5f5 50%, #e8e8e8 70%);
+	background-size: 200% 100%;
+	animation: project-shimmer 1.2s linear infinite;
 }
 
 .project-gallery-thumb:hover {
@@ -421,6 +465,7 @@
 	align-items: center;
 	justify-content: center;
 	background: rgba(0, 0, 0, .93);
+	animation: project-overlay-in .2s ease;
 }
 
 .project-lightbox-img {
@@ -429,6 +474,7 @@
 	object-fit: contain;
 	border-radius: 4px;
 	box-shadow: 0 12px 48px rgba(0, 0, 0, .6);
+	background: #1c1c1c;
 }
 
 .project-lightbox-btn {
@@ -471,4 +517,37 @@
 	text-align: center;
 	font-size: .85rem;
 	color: #bbb;
+}
+
+/* ---------- responsive ---------- */
+
+@media screen and (max-width: 736px) {
+	.project-modal-overlay {
+		padding: 0;
+	}
+
+	.project-modal {
+		max-width: 100%;
+		max-height: 100vh;
+		height: 100vh;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.project-modal-body {
+		padding: 1.25rem 1.25rem 1.75rem;
+	}
+
+	.project-gallery-thumb {
+		width: 80px;
+		height: 50px;
+	}
+
+	.project-lightbox-prev {
+		left: .5rem;
+	}
+
+	.project-lightbox-next {
+		right: .5rem;
+	}
 }

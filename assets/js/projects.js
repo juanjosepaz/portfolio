@@ -28,6 +28,7 @@
 	var currentScreens = [];
 	var currentScreenIndex = 0;
 	var lightboxTitle = '';
+	var filterAnimating = false;
 
 	/* ---------- helpers ---------- */
 
@@ -95,16 +96,25 @@
 	}
 
 	function applyFilter(filter) {
+		if (filterAnimating) return;
+		filterAnimating = true;
+
 		var buttons = filtersEl.querySelectorAll('.project-filter');
 		for (var i = 0; i < buttons.length; i++) {
 			var active = buttons[i].getAttribute('data-filter') === filter;
 			buttons[i].classList.toggle('is-active', active);
 		}
-		var cards = gridEl.querySelectorAll('.project-card');
-		for (var j = 0; j < cards.length; j++) {
-			var show = filter === 'all' || cards[j].getAttribute('data-category') === filter;
-			cards[j].style.display = show ? '' : 'none';
-		}
+
+		gridEl.classList.add('is-fading');
+		window.setTimeout(function () {
+			var cards = gridEl.querySelectorAll('.project-card');
+			for (var j = 0; j < cards.length; j++) {
+				var show = filter === 'all' || cards[j].getAttribute('data-category') === filter;
+				cards[j].style.display = show ? '' : 'none';
+			}
+			gridEl.classList.remove('is-fading');
+			filterAnimating = false;
+		}, 240);
 	}
 
 	/* ---------- cards ---------- */
@@ -116,7 +126,7 @@
 			'role="button" aria-label="View details: ' + esc(p.title) + '">' +
 			'<div class="project-card-media">' +
 			'<span class="project-badge project-badge-' + esc(p.category) + '">' + categoryLabel(p.category) + '</span>' +
-			'<img class="project-cover" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover" loading="lazy">' +
+			'<img class="project-cover" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover" loading="lazy" decoding="async">' +
 			'<span class="project-card-view">View details &rarr;</span>' +
 			'</div>' +
 			'<div class="project-card-body">' +
@@ -140,6 +150,7 @@
 		for (var i = 0; i < cards.length; i++) {
 			(function (card, index) {
 				card.setAttribute('data-index', index);
+				card.style.animationDelay = Math.min(index * 60, 800) + 'ms';
 				var cover = card.querySelector('.project-cover');
 				if (cover) bindImageFallback(cover, projects[index].title);
 				card.addEventListener('click', function () { openModal(card); });
@@ -212,7 +223,7 @@
 			modalMediaHTML(p) +
 			'<div class="project-modal-body">' +
 			'<div class="project-modal-title-row">' +
-			'<h2 class="project-modal-title">' + esc(p.title) + '</h2>' +
+			'<h2 class="project-modal-title" id="project-modal-title">' + esc(p.title) + '</h2>' +
 			'<span class="project-badge project-badge-' + esc(p.category) + '">' + categoryLabel(p.category) + '</span>' +
 			'</div>' +
 			'<div class="project-modal-meta">' +
@@ -236,6 +247,8 @@
 		if (!modalEl) buildModal();
 
 		modalEl.innerHTML = modalHTML(project);
+		modalEl.setAttribute('aria-label', project.title + ' details');
+		modalEl.setAttribute('aria-labelledby', 'project-modal-title');
 		modalEl.hidden = false;
 		lockScroll();
 
@@ -342,17 +355,37 @@
 
 	/* ---------- modal container ---------- */
 
+	function getFocusable(root) {
+		return Array.prototype.slice.call(root.querySelectorAll(
+			'button:not([disabled]), a[href], iframe, [tabindex]:not([tabindex="-1"])'
+		));
+	}
+
 	function buildModal() {
 		modalEl = document.createElement('div');
 		modalEl.className = 'project-modal-overlay';
 		modalEl.hidden = true;
 		modalEl.setAttribute('role', 'dialog');
 		modalEl.setAttribute('aria-modal', 'true');
-		modalEl.setAttribute('aria-label', 'Project details');
 		document.body.appendChild(modalEl);
 
 		modalEl.addEventListener('click', function (e) {
 			if (e.target === modalEl) closeModal();
+		});
+
+		modalEl.addEventListener('keydown', function (e) {
+			if (e.key !== 'Tab') return;
+			var focusables = getFocusable(modalEl);
+			if (!focusables.length) return;
+			var first = focusables[0];
+			var last = focusables[focusables.length - 1];
+			if (e.shiftKey && document.activeElement === first) {
+				e.preventDefault();
+				last.focus();
+			} else if (!e.shiftKey && document.activeElement === last) {
+				e.preventDefault();
+				first.focus();
+			}
 		});
 	}
 
