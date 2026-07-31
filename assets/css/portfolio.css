@@ -356,10 +356,12 @@
 }
 
 .project-gallery-thumb {
-	width: 96px;
-	height: 60px;
+	width: 128px;
+	height: 80px;
 	flex-shrink: 0;
-	object-fit: cover;
+	object-fit: contain;
+	padding: 4px;
+	box-sizing: border-box;
 	border-radius: 4px;
 	cursor: pointer;
 	opacity: .65;
@@ -539,8 +541,8 @@
 	}
 
 	.project-gallery-thumb {
-		width: 80px;
-		height: 50px;
+		width: 104px;
+		height: 65px;
 	}
 
 	.project-lightbox-prev {
