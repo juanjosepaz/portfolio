@@ -107,8 +107,7 @@
 }
 
 .project-card-media::before,
-.project-gallery-main-wrap::before,
-.project-gallery-thumb-wrap::before {
+.project-gallery-main-wrap::before {
 	content: '';
 	position: absolute;
 	inset: -8px;
@@ -360,7 +359,6 @@
 }
 
 .project-gallery-thumb-wrap {
-	position: relative;
 	flex-shrink: 0;
 }
 

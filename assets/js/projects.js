@@ -164,10 +164,11 @@
 	/* ---------- modal ---------- */
 
 	function modalMediaHTML(p) {
+		var mainSrc = (p.screenshots && p.screenshots.length > 0) ? p.screenshots[0] : p.coverImage;
 		if (p.videoUrl && p.screenshots && p.screenshots.length > 0) {
 			var thumbs = '';
 			p.screenshots.forEach(function (src) {
-				thumbs += '<div class="project-gallery-thumb-wrap" style="background-image:url(\'' + esc(src) + '\')">' +
+				thumbs += '<div class="project-gallery-thumb-wrap">' +
 					'<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
 					'</div>';
 			});
@@ -177,8 +178,8 @@
 				'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
 				'</div>' +
 				'<div class="project-gallery">' +
-				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(p.coverImage) + '\')">' +
-				'<img class="project-gallery-main" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover">' +
+				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(mainSrc) + '\')">' +
+				'<img class="project-gallery-main" src="' + esc(mainSrc) + '" alt="' + esc(p.title) + ' screenshot">' +
 				'</div>' +
 				'<div class="project-gallery-thumbs">' + thumbs + '</div>' +
 				'</div>';
@@ -192,13 +193,13 @@
 		if (p.screenshots && p.screenshots.length > 0) {
 			var thumbs2 = '';
 			p.screenshots.forEach(function (src) {
-				thumbs2 += '<div class="project-gallery-thumb-wrap" style="background-image:url(\'' + esc(src) + '\')">' +
+				thumbs2 += '<div class="project-gallery-thumb-wrap">' +
 					'<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
 					'</div>';
 			});
 			return '<div class="project-gallery">' +
-				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(p.coverImage) + '\')">' +
-				'<img class="project-gallery-main" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover">' +
+				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(mainSrc) + '\')">' +
+				'<img class="project-gallery-main" src="' + esc(mainSrc) + '" alt="' + esc(p.title) + ' screenshot">' +
 				'</div>' +
 				'<div class="project-gallery-thumbs">' + thumbs2 + '</div>' +
 				'</div>';
