@@ -164,47 +164,37 @@
 	/* ---------- modal ---------- */
 
 	function modalMediaHTML(p) {
-		var mainSrc = (p.screenshots && p.screenshots.length > 0) ? p.screenshots[0] : p.coverImage;
-		if (p.videoUrl && p.screenshots && p.screenshots.length > 0) {
-			var thumbs = '';
+		var hasVideo = !!p.videoUrl;
+		var hasShots = p.screenshots && p.screenshots.length > 0;
+		if (!hasVideo && !hasShots) return '';
+
+		var mainSrc = hasShots ? p.screenshots[0] : p.coverImage;
+		var thumbs = '';
+		if (hasVideo && hasShots) {
+			thumbs += '<div class="project-gallery-thumb-wrap">' +
+				'<button type="button" class="project-gallery-thumb project-gallery-thumb-video" aria-label="' + esc(p.title) + ' video"></button>' +
+				'</div>';
+		}
+		if (hasShots) {
 			p.screenshots.forEach(function (src) {
 				thumbs += '<div class="project-gallery-thumb-wrap">' +
 					'<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
 					'</div>';
 			});
-			return '' +
-				'<div class="project-video">' +
-				'<iframe src="' + esc(p.videoUrl) + '" title="' + esc(p.title) + ' video" frameborder="0" ' +
-				'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
-				'</div>' +
-				'<div class="project-gallery">' +
-				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(mainSrc) + '\')">' +
-				'<img class="project-gallery-main" src="' + esc(mainSrc) + '" alt="' + esc(p.title) + ' screenshot">' +
-				'</div>' +
-				'<div class="project-gallery-thumbs">' + thumbs + '</div>' +
-				'</div>';
 		}
-		if (p.videoUrl) {
-			return '<div class="project-video">' +
-				'<iframe src="' + esc(p.videoUrl) + '" title="' + esc(p.title) + ' video" frameborder="0" ' +
-				'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
-				'</div>';
+
+		var media = '<div class="project-gallery-main-wrap"';
+		if (hasShots) media += ' style="background-image:url(\'' + esc(mainSrc) + '\')"';
+		media += '>';
+		if (hasVideo) {
+			media += '<div class="project-video" data-video-url="' + esc(p.videoUrl) + '"></div>';
 		}
-		if (p.screenshots && p.screenshots.length > 0) {
-			var thumbs2 = '';
-			p.screenshots.forEach(function (src) {
-				thumbs2 += '<div class="project-gallery-thumb-wrap">' +
-					'<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
-					'</div>';
-			});
-			return '<div class="project-gallery">' +
-				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(mainSrc) + '\')">' +
-				'<img class="project-gallery-main" src="' + esc(mainSrc) + '" alt="' + esc(p.title) + ' screenshot">' +
-				'</div>' +
-				'<div class="project-gallery-thumbs">' + thumbs2 + '</div>' +
-				'</div>';
+		if (hasShots) {
+			media += '<img class="project-gallery-main" src="' + esc(mainSrc) + '" alt="' + esc(p.title) + ' screenshot">';
 		}
-		return '';
+		media += '</div>';
+		if (thumbs) media += '<div class="project-gallery-thumbs">' + thumbs + '</div>';
+		return '<div class="project-gallery">' + media + '</div>';
 	}
 
 	function modalHTML(p) {
@@ -274,26 +264,58 @@
 
 	function wireGallery(project, screens) {
 		var main = modalEl.querySelector('.project-gallery-main');
+		var videoBox = modalEl.querySelector('.project-video');
+		var videoThumb = modalEl.querySelector('.project-gallery-thumb-video');
 		var thumbs = modalEl.querySelectorAll('.project-gallery-thumb');
-		if (!main) return;
+		if (!main && !videoBox) return;
+		var hasVideo = !!videoBox;
+		var screensStart = hasVideo ? 1 : 0;
+
+		function buildVideo() {
+			var src = videoBox.getAttribute('data-video-url');
+			var sep = src.indexOf('?') === -1 ? '?' : '&';
+			var frame = document.createElement('iframe');
+			frame.src = src + sep + 'autoplay=1';
+			frame.title = project.title + ' video';
+			frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+			frame.setAttribute('allowfullscreen', '');
+			videoBox.appendChild(frame);
+		}
+
+		function showVideo(show) {
+			videoBox.hidden = !show;
+			if (main) main.hidden = show;
+			if (videoThumb) videoThumb.classList.toggle('is-active', show);
+			if (show && !videoBox.querySelector('iframe')) buildVideo();
+			if (!show) {
+				var frame = videoBox.querySelector('iframe');
+				if (frame) frame.remove();
+			}
+		}
 
 		function setActive(index) {
+			if (hasVideo) showVideo(false);
 			main.src = screens[index];
 			main.parentElement.style.backgroundImage = "url('" + screens[index] + "')";
 			for (var i = 0; i < thumbs.length; i++) {
-				thumbs[i].classList.toggle('is-active', i === index);
+				thumbs[i].classList.toggle('is-active', i === index + screensStart);
 			}
 		}
 
 		for (var i = 0; i < thumbs.length; i++) {
 			(function (thumb, idx) {
-				thumb.addEventListener('click', function () { setActive(idx); });
+				thumb.addEventListener('click', function () {
+					if (hasVideo && idx === 0) { showVideo(true); return; }
+					setActive(idx - screensStart);
+				});
 			})(thumbs[i], i);
 		}
 
-		main.addEventListener('click', function () {
-			if (screens.length) openLightbox(screens, currentActiveIndex(), project.title);
-		});
+		if (main) {
+			main.addEventListener('click', function () {
+				if (screens.length) openLightbox(screens, currentActiveIndex() - screensStart, project.title);
+			});
+		}
 
 		function currentActiveIndex() {
 			for (var i = 0; i < thumbs.length; i++) {
@@ -302,7 +324,8 @@
 			return 0;
 		}
 
-		if (thumbs.length) thumbs[0].classList.add('is-active');
+		if (hasVideo) showVideo(true);
+		else if (thumbs.length) thumbs[0].classList.add('is-active');
 	}
 
 	function closeModal() {
