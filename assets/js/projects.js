@@ -11,7 +11,12 @@
 		community: 'Community'
 	};
 
-	var CATEGORY_ORDER = ['shipped', 'prototype', 'technical-demo', 'community'];
+	var FILTERS = [
+		{ id: 'all', label: 'All' },
+		{ id: 'shipped', label: 'Shipped' },
+		{ id: 'prototype', label: 'Prototypes' },
+		{ id: 'technical-demo', label: 'Technical Demos' }
+	];
 
 	var projects = (window.PORTFOLIO_PROJECTS || []).slice();
 	var gridEl = document.getElementById('projects-grid');
@@ -20,7 +25,6 @@
 	var modalEl = null;
 	var lightboxEl = null;
 	var lastFocused = null;
-	var activeFilter = 'all';
 	var currentScreens = [];
 	var currentScreenIndex = 0;
 	var lightboxTitle = '';
@@ -72,15 +76,14 @@
 	/* ---------- filters ---------- */
 
 	function renderFilters() {
-		var cats = CATEGORY_ORDER.filter(function (cat) {
-			return projects.some(function (p) { return p.category === cat; });
-		});
-
-		var html = '<button type="button" class="project-filter is-active" data-filter="all">All Projects</button>';
-		cats.forEach(function (cat) {
-			var count = projects.filter(function (p) { return p.category === cat; }).length;
-			html += '<button type="button" class="project-filter" data-filter="' + esc(cat) + '">' +
-				categoryLabel(cat) + ' <span class="project-filter-count">' + count + '</span></button>';
+		var html = '';
+		FILTERS.forEach(function (filter, i) {
+			var count = filter.id === 'all'
+				? projects.length
+				: projects.filter(function (p) { return p.category === filter.id; }).length;
+			html += '<button type="button" class="project-filter' + (i === 0 ? ' is-active' : '') +
+				'" data-filter="' + filter.id + '">' + filter.label +
+				' <span class="project-filter-count">' + count + '</span></button>';
 		});
 		filtersEl.innerHTML = html;
 
@@ -92,7 +95,6 @@
 	}
 
 	function applyFilter(filter) {
-		activeFilter = filter;
 		var buttons = filtersEl.querySelectorAll('.project-filter');
 		for (var i = 0; i < buttons.length; i++) {
 			var active = buttons[i].getAttribute('data-filter') === filter;
@@ -115,6 +117,7 @@
 			'<div class="project-card-media">' +
 			'<span class="project-badge project-badge-' + esc(p.category) + '">' + categoryLabel(p.category) + '</span>' +
 			'<img class="project-cover" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover" loading="lazy">' +
+			'<span class="project-card-view">View details &rarr;</span>' +
 			'</div>' +
 			'<div class="project-card-body">' +
 			'<h3 class="project-card-title">' + esc(p.title) + '</h3>' +

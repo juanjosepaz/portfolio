@@ -101,6 +101,30 @@
 	transform: scale(1.03);
 }
 
+.project-card-view {
+	position: absolute;
+	right: .75rem;
+	bottom: .75rem;
+	z-index: 1;
+	font-size: .75rem;
+	font-weight: 600;
+	letter-spacing: .05em;
+	color: #fff;
+	background: rgba(0, 0, 0, .6);
+	padding: .35rem .7rem;
+	border-radius: 2rem;
+	opacity: 0;
+	transform: translateY(4px);
+	transition: opacity .2s ease, transform .2s ease;
+	pointer-events: none;
+}
+
+.project-card:hover .project-card-view,
+.project-card:focus-visible .project-card-view {
+	opacity: 1;
+	transform: none;
+}
+
 .project-badge {
 	position: absolute;
 	top: .75rem;
