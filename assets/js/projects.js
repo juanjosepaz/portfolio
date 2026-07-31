@@ -124,7 +124,7 @@
 		return '' +
 			'<article class="project-card" data-category="' + esc(p.category) + '" tabindex="0" ' +
 			'role="button" aria-label="View details: ' + esc(p.title) + '">' +
-			'<div class="project-card-media">' +
+			'<div class="project-card-media" style="background-image:url(\'' + esc(p.coverImage) + '\')">' +
 			'<span class="project-badge project-badge-' + esc(p.category) + '">' + categoryLabel(p.category) + '</span>' +
 			'<img class="project-cover" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover" loading="lazy" decoding="async">' +
 			'<span class="project-card-view">View details &rarr;</span>' +
@@ -167,7 +167,9 @@
 		if (p.videoUrl && p.screenshots && p.screenshots.length > 0) {
 			var thumbs = '';
 			p.screenshots.forEach(function (src) {
-				thumbs += '<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">';
+				thumbs += '<div class="project-gallery-thumb-wrap" style="background-image:url(\'' + esc(src) + '\')">' +
+					'<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
+					'</div>';
 			});
 			return '' +
 				'<div class="project-video">' +
@@ -175,7 +177,9 @@
 				'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
 				'</div>' +
 				'<div class="project-gallery">' +
+				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(p.coverImage) + '\')">' +
 				'<img class="project-gallery-main" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover">' +
+				'</div>' +
 				'<div class="project-gallery-thumbs">' + thumbs + '</div>' +
 				'</div>';
 		}
@@ -188,10 +192,14 @@
 		if (p.screenshots && p.screenshots.length > 0) {
 			var thumbs2 = '';
 			p.screenshots.forEach(function (src) {
-				thumbs2 += '<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">';
+				thumbs2 += '<div class="project-gallery-thumb-wrap" style="background-image:url(\'' + esc(src) + '\')">' +
+					'<img class="project-gallery-thumb" src="' + esc(src) + '" alt="' + esc(p.title) + ' screenshot" loading="lazy">' +
+					'</div>';
 			});
 			return '<div class="project-gallery">' +
+				'<div class="project-gallery-main-wrap" style="background-image:url(\'' + esc(p.coverImage) + '\')">' +
 				'<img class="project-gallery-main" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover">' +
+				'</div>' +
 				'<div class="project-gallery-thumbs">' + thumbs2 + '</div>' +
 				'</div>';
 		}
@@ -270,6 +278,7 @@
 
 		function setActive(index) {
 			main.src = screens[index];
+			main.parentElement.style.backgroundImage = "url('" + screens[index] + "')";
 			for (var i = 0; i < thumbs.length; i++) {
 				thumbs[i].classList.toggle('is-active', i === index);
 			}
