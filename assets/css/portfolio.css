@@ -630,8 +630,31 @@
 
 @media screen and (min-width: 1281px) {
 	#header {
+		align-items: flex-start;
+		padding: 6em 3em;
+		text-align: left;
 		width: min(29%, 500px);
-		padding: 8em 3em;
+	}
+
+	#header .image.avatar {
+		aspect-ratio: 908 / 842;
+		border: solid 2px #4b4b4b;
+		border-radius: 1em;
+		box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.35);
+		display: block;
+		margin: 0 0 1.5em 0;
+		max-width: 18em;
+		object-fit: cover;
+		width: 100%;
+	}
+
+	#header .image.avatar img {
+		aspect-ratio: 908 / 842;
+		border-radius: 0;
+		display: block;
+		height: auto;
+		object-fit: cover;
+		width: 100%;
 	}
 
 	#main {
