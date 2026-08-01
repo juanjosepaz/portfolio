@@ -223,10 +223,6 @@
 			actions += '<a class="button primary" href="' + esc(p.externalLink) + '" target="_blank" rel="noopener">' +
 				esc(p.externalLabel || 'Play Game') + '</a>';
 		}
-		if (p.videoUrl) {
-			var videoLabel = (p.category === 'technical-demo' || p.category === 'prototype') ? 'Watch Demo' : 'Watch Trailer';
-			actions += '<a class="button" href="' + esc(p.videoUrl) + '" target="_blank" rel="noopener">' + videoLabel + '</a>';
-		}
 
 		return '' +
 			'<button type="button" class="project-modal-close" aria-label="Close details">&times;</button>' +
