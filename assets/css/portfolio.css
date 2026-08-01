@@ -10,13 +10,31 @@
 	margin: 0 0 1.75rem;
 }
 
+/* ---------- acento de marca (probar alternativas cambiando la variable) ---------- */
+
+:root {
+	--bp-accent: #a7262f;
+}
+
+#main .button:hover {
+	border-color: var(--bp-accent);
+	color: var(--bp-accent) !important;
+}
+
+#main .button:active {
+	background-color: rgba(167, 38, 47, 0.12);
+	border-color: var(--bp-accent);
+	color: var(--bp-accent) !important;
+}
+
 /* ---------- filters ---------- */
 
 .project-filters {
 	display: flex;
 	flex-wrap: wrap;
-	gap: .5rem;
+	gap: .25rem;
 	margin: 0 0 2rem;
+	border-bottom: solid 1px #e0e0e0;
 }
 
 .project-filter {
@@ -24,23 +42,27 @@
 	font-size: .95rem;
 	font-weight: 600;
 	letter-spacing: .03em;
-	color: #787878;
-	background: #fff;
-	border: solid 1px #d8d8d8;
-	border-radius: 2rem;
+	color: #9a9a9a;
+	background: transparent;
+	border: solid 1px transparent;
+	border-bottom: solid 2px transparent;
+	border-radius: .5rem .5rem 0 0;
 	padding: .65rem 1.3rem;
+	margin-bottom: -1px;
 	cursor: pointer;
-	transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+	transition: color .2s ease, background-color .2s ease, border-color .2s ease;
 }
 
 .project-filter:hover {
-	border-color: #49bf9d;
-	color: #49bf9d;
+	background: #f7f7f7;
+	border-color: #e0e0e0;
+	border-bottom-color: transparent;
+	color: #262626;
 }
 
 .project-filter.is-active {
-	background: #49bf9d;
-	border-color: #49bf9d;
+	background: #262626;
+	border-color: #262626;
 	color: #fff;
 }
 
