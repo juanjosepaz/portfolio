@@ -21,14 +21,14 @@
 
 .project-filter {
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
-	font-size: .85rem;
+	font-size: .95rem;
 	font-weight: 600;
 	letter-spacing: .03em;
 	color: #787878;
 	background: #fff;
 	border: solid 1px #d8d8d8;
 	border-radius: 2rem;
-	padding: .55rem 1.1rem;
+	padding: .65rem 1.3rem;
 	cursor: pointer;
 	transition: color .2s ease, border-color .2s ease, background-color .2s ease;
 }
