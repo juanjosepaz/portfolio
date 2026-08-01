@@ -17,8 +17,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: 'Mobile game where a ball descends a spiraling tower, switching between two realities to find the path forward.',
 		fullDescription: [
 			'Helix Tower 3D is a mobile game that reimagines the classic Helix Jump formula with a unique dual-reality twist. Players guide a ball down a spiraling tower, but can double-tap to switch between two parallel realities\u2014each with different platform layouts, power-ups, and hazards.',
-			'As Lead Gameplay Programmer, I architected and implemented all client-side systems including input, physics, procedural level generation (JSON/seed-based), economy, IAPs, save system, and daily challenges. I also built custom Unity Editor tools for the design team, reducing iteration time by ~30%, and integrated Firebase, PlayFab, AdMob, and OneSignal.',
-			'One of the biggest challenges was a critical bug that dropped FPS from 60 to 2 on Android devices. Using Unity\u2019s Profiler, I identified that an external URP asset was altering the global render pipeline settings. I resolved it by replicating the visual changes within our existing pipeline, restoring performance without sacrificing quality.'
+			'As Lead Gameplay Programmer, I architected and implemented all client-side systems including input, physics, procedural level generation (JSON/seed-based), economy, IAPs, save system, and daily challenges. I also built custom Unity Editor tools for the design team, reducing iteration time by ~30%, and integrated Firebase, PlayFab, AdMob, and OneSignal.'
 		],
 		coverImage: 'images/PortfolioImages/HelixTower/HelixTower-Cover.png',
 		screenshots: ['images/PortfolioImages/HelixTower/HelixTower-Cover.png'],
@@ -55,8 +54,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: '2D pixel art game where a trapped character dodges platforms and enemies in a deadly castle.',
 		fullDescription: [
 			'Castle Trap is a hyper-casual 2D platformer where the player is trapped in a simple castle with a fixed camera. Platforms rise from the floor and ceiling, threatening to crush the player against spikes, while enemies emerge from the walls. The goal is to survive as long as possible.',
-			'This was my first shipped game under the BravePixelG brand. I handled everything\u2014code, art (Aseprite), sound (Audacity), and integration of Unity Ads. I also managed the full Google Play release process, including licensing, console setup, and passing internal testing.',
-			'The most difficult part was passing Google Play\u2019s internal tests on Google Pixel devices due to Gradle and API level issues\u2014I resolved it by upgrading the Unity version and adjusting the build configuration.'
+			'This was my first shipped game under the BravePixelG brand. I handled everything\u2014code, art (Aseprite), sound (Audacity), and integration of Unity Ads. I also managed the full Google Play release process, including licensing, console setup, and passing internal testing.'
 		],
 		coverImage: 'images/PortfolioImages/CastleTrap/CastleTrap-Icon.png',
 		screenshots: ['images/PortfolioImages/CastleTrap/CastleTrap-Banner.png', 'images/PortfolioImages/CastleTrap/CastleTrap-King.png', 'images/PortfolioImages/CastleTrap/CastleTrap-DontFall.png', 'images/PortfolioImages/CastleTrap/CastleTrap-PlayNow.png', 'images/PortfolioImages/CastleTrap/CastleTrap-UnklockAllCharacters.png'],
@@ -74,8 +72,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: 'Match-3 roguelike where each matched unit attacks enemies in turn-based combat.',
 		fullDescription: [
 			'Match & Slash is a turn-based roguelike that combines match-3 mechanics with tactical combat. Players manage a grid of units in a match-3 battle\u2014each matched unit deals damage to enemies. After the player\u2019s turn, enemies attack back. Between rounds, players choose from roguelike upgrades (cards) to customize their run, and bosses with special abilities appear at the end of each level.',
-			'I developed this game from concept to release in just two weeks for the PirateSoftware Game Jam 2025, using the theme "You are the weapon." I handled all code, implementation, and deployment to Itch.io.',
-			'The biggest technical challenge was the unit spawning system. Units are placed on an 8x5 grid with 4 colors, but they couldn\u2019t create immediate horizontal or vertical matches. I developed a dynamic spawning algorithm that avoids match-3 conditions from the start while maintaining a fair distribution.'
+			'I developed this game from concept to release in just two weeks for the PirateSoftware Game Jam 2025, using the theme "You are the weapon." I handled all code, implementation, and deployment to Itch.io.'
 		],
 		coverImage: 'images/PortfolioImages/Match&Slash/Match&Slash-Logo.png',
 		screenshots: ['images/PortfolioImages/Match&Slash/Match&Slash-Wave.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Store.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss2.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Defeat.png'],
@@ -93,8 +90,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: '3D tactical RPG where monster squads battle in turn-based grid combat with AI-driven enemy behavior.',
 		fullDescription: [
 			'Monster Tactics is a functional 3D tactical RPG prototype where players control a squad of 3 monsters against an AI-controlled squad of 4. Combat is turn-based, with each unit able to move, attack, or use special abilities. The AI uses advanced decision-making based on distance, cover, and potential damage output.',
-			'I developed the entire technical foundation, including a grid-based movement system, turn management, and AI behavior. The AI evaluates multiple actions (movement, attack, ability usage) and selects the optimal sequence to maintain combat effectiveness while minimizing exposure.',
-			'The hardest part was optimizing the A* pathfinding algorithm while allowing dynamic obstacle destruction. When an obstacle is destroyed, the grid recalculates in real-time. I implemented a modified A* with efficient neighbor checking and combined it with a utility-based AI decision system that balances aggression, cover, and damage.'
+			'I developed the entire technical foundation, including a grid-based movement system, turn management, and AI behavior. The AI evaluates multiple actions (movement, attack, ability usage) and selects the optimal sequence to maintain combat effectiveness while minimizing exposure.'
 		],
 		videoUrl: 'https://www.youtube.com/embed/AIBdYmzDbAw',
 		coverImage: 'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-Icon.png',
@@ -113,8 +109,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: 'Online multiplayer tank shooter with matchmaking, lobby system, and player-hosted or cloud-hosted sessions.',
 		fullDescription: [
 			'Multiplayer Tanks is a technical demo showcasing my experience with Unity\u2019s multiplayer ecosystem. Players control a tank in real-time battles, with support for matchmaking, lobby creation, and player-hosted sessions (using Unity Relay) as well as dedicated cloud-hosted servers.',
-			'I implemented the full multiplayer stack using Unity\u2019s Netcode for GameObjects for synchronization, Unity Relay for peer-to-peer connectivity, and Unity Lobby for matchmaking and session management. The project demonstrates my ability to build scalable, real-time multiplayer systems.',
-			'The biggest challenge was transitioning from a player-hosted model to a cloud-hosted dedicated server architecture. Ensuring a seamless handover when the host player left was critical\u2014I implemented a host migration system that preserves the game state and assigns a new host without interrupting gameplay.'
+			'I implemented the full multiplayer stack using Unity\u2019s Netcode for GameObjects for synchronization, Unity Relay for peer-to-peer connectivity, and Unity Lobby for matchmaking and session management. The project demonstrates my ability to build scalable, real-time multiplayer systems.'
 		],
 		videoUrl: 'https://www.youtube.com/embed/m0Ocqm5MK-8',
 		coverImage: 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-Icon.png',
@@ -133,7 +128,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: 'Dungeon crawler where a clock is your weapon, your lifeline, and sometimes your worst enemy.',
 		fullDescription: [
 			'ClockedOut is a single-player browser game made in 4 days for the Game Maker\u2019s Toolkit Game Jam 2026. Players control a character in a dungeon, using a clock interface where each position triggers a different action. The clock\u2019s hand rotates, and pressing the button activates the highlighted ability. Players must defeat waves of enemies before time runs out, while enemies can disrupt the clock layout, forcing quick adaptation.',
-			'I developed all the code and some of the art, and the concept was original for the jam based on the theme "Count Down." The main challenge was maximizing game feel with limited time\u2014I focused on UI animations, visual feedback, and a responsive clock interface to make every action feel impactful.'
+			'I developed all the code and some of the art, and the concept was original for the jam based on the theme "Count Down."'
 		],
 		coverImage: 'images/PortfolioImages/ClockedOut/ClockedOut_Logo.png',
 		screenshots: ['images/PortfolioImages/ClockedOut/ClockedOut_1.png', 'images/PortfolioImages/ClockedOut/ClockedOut_2.png', 'images/PortfolioImages/ClockedOut/ClockedOut_3.png', 'images/PortfolioImages/ClockedOut/ClockedOut_4.png'],
@@ -151,8 +146,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: 'Tower defense where players plant and harvest seeds by day, and defend crystals at night.',
 		fullDescription: [
 			'Bloomguard is a 2D tower defense game with a day/night cycle, created for the Latin American Game Showcase Game Jam 2025 (theme: "Ojos que no ven, coraz\u00f3n que no siente"). Players move freely across the map, planting seeds that can be harvested and used as weapons. By night, enemies attack the crystals, and players must use their plants strategically to defend.',
-			'I handled all code and game design, working with pre-made assets to deliver a polished prototype in a short timeframe. The game ranked 11th out of 139 entries in the "Fun & Gameplay" category.',
-			'The biggest challenge was integrating the planting, harvesting, and combat systems into a cohesive real-time experience where UI interactions are critical for survival.'
+			'I handled all code and game design, working with pre-made assets to deliver a polished prototype in a short timeframe. The game ranked 11th out of 139 entries in the "Fun & Gameplay" category.'
 		],
 		coverImage: 'images/PortfolioImages/Bloomguard/Bloomguard-Logo.png',
 		screenshots: ['images/PortfolioImages/Bloomguard/Bloomguard-Day1.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Heal.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Attack.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Day2.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Destroy.png'],
@@ -170,7 +164,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: 'Top-down action shooter where players fight waves of door-shaped enemies in a deadly coliseum.',
 		fullDescription: [
 			'Dooroseum is a 2D pixel art game made for the Brackeys Game Jam 2024 (theme: "What\u2019s behind the door"). Players control a character with two weapons (pistol and shotgun) to defeat waves of door-shaped enemies in a coliseum. The final boss is a key that unlocks one of two doors to escape.',
-			'I developed all code and implemented visual assets created by a collaborator. The most challenging part was implementing a state machine for enemy behavior based on health thresholds, combined with a pathfinding system that allows enemies to track the player within the arena.'
+			'I developed all code and implemented visual assets created by a collaborator.'
 		],
 		coverImage: 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Icon.png',
 		screenshots: ['images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay1.png', 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay2.png'],
@@ -208,8 +202,7 @@ window.PORTFOLIO_PROJECTS = [
 		shortDescription: '2D platformer where an astronaut descends through a procedurally generated space cave.',
 		fullDescription: [
 			'Space Diver is a 2D platformer made for the Brackeys Game Jam 2023 (theme: "Diving deeper"). Players control an astronaut descending through a procedural space cave using a grappling hook to stick to walls, avoiding obstacles and enemies.',
-			'The game features infinite procedural level generation using object pooling to load and unload level segments seamlessly. I handled all code, implementation, and game design, while art was created by a collaborator.',
-			'The main technical challenge was creating a smooth procedural generation system that feels like a continuous experience rather than randomly spawned chunks.'
+			'The game features infinite procedural level generation using object pooling to load and unload level segments seamlessly. I handled all code, implementation, and game design, while art was created by a collaborator.'
 		],
 		coverImage: 'images/PortfolioImages/SpaceDiver/SpaceDiver-Logo.png',
 		screenshots: ['images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay1.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay2.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay3.png'],
