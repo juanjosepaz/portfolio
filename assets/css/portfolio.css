@@ -626,35 +626,96 @@
 	}
 }
 
-/* ---------- sidebar reducido en pantallas anchas ---------- */
+/* ---------- foto de perfil: tarjeta rectangular en todas las pantallas ---------- */
 
-@media screen and (min-width: 1281px) {
+#header .image.avatar {
+	aspect-ratio: 908 / 842;
+	border: solid 2px #4b4b4b;
+	border-radius: 1em;
+	box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.35);
+	display: block;
+	margin: 0 auto 1.5em auto;
+	max-width: 100%;
+	object-fit: cover;
+	width: 12em;
+}
+
+/* ---------- parrafos de la intro mas juntos ---------- */
+
+#one p {
+	margin-bottom: 1em;
+}
+
+/* ---------- sidebar centrado en pantallas medianas ---------- */
+
+@media screen and (min-width: 981px) and (max-width: 1280px) {
 	#header {
-		align-items: flex-start;
-		padding: 6em 3em;
-		text-align: left;
-		width: min(29%, 500px);
+		align-items: center;
+		padding: 6em 4em 3em 4em;
+		text-align: center;
+	}
+
+	#header > .inner {
+		flex-grow: 0;
+		margin: 0;
 	}
 
 	#header .image.avatar {
-		aspect-ratio: 908 / 842;
-		border: solid 2px #4b4b4b;
-		border-radius: 1em;
-		box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.35);
-		display: block;
-		margin: 0 0 1.5em 0;
-		max-width: 18em;
-		object-fit: cover;
-		width: 100%;
+		margin-bottom: 0;
 	}
 
-	#header .image.avatar img {
-		aspect-ratio: 908 / 842;
-		border-radius: 0;
-		display: block;
-		height: auto;
-		object-fit: cover;
-		width: 100%;
+	#header h1 {
+		font-size: 1em;
+		line-height: 1.6em;
+	}
+
+	#header h1 br {
+		display: inline;
+	}
+
+	#footer {
+		padding: 0 0 2em 0;
+	}
+
+	#footer .icons {
+		margin-top: 0;
+	}
+}
+
+/* ---------- sidebar centrado y compacto en pantallas anchas ---------- */
+
+@media screen and (min-width: 1281px) {
+	#header {
+		align-items: center;
+		padding: 4em 2.5em 3em 2.5em;
+		text-align: center;
+		width: min(29%, 500px);
+	}
+
+	#header > .inner {
+		flex-grow: 0;
+		margin: 0;
+	}
+
+	#header .image.avatar {
+		margin-bottom: 0;
+	}
+
+	#header h1 {
+		font-size: 1em;
+		line-height: 1.6em;
+	}
+
+	#footer {
+		padding: 0 0 2em 0;
+	}
+
+	#footer .icons {
+		margin-top: 0;
+	}
+
+	#footer .icons li .icon:before {
+		font-size: 1.1em;
 	}
 
 	#main {
@@ -678,5 +739,23 @@
 
 	#main section header.major h2 {
 		margin-bottom: 0.5em;
+	}
+}
+
+/* ---------- moviles: texto e iconos del header mas compactos ---------- */
+
+@media screen and (max-width: 980px) {
+	#header h1 {
+		font-size: 1.25em;
+	}
+
+	#footer .icons li .icon {
+		font-size: 1em;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#header h1 br {
+		display: inline;
 	}
 }

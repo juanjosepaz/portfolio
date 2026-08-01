@@ -474,6 +474,19 @@
 		}
 	});
 
+	/* ---------- boton Explore My Work: scroll suave a la seccion de proyectos ---------- */
+
+	var exploreBtn = document.querySelector('.explore-work-btn');
+	if (exploreBtn) {
+		exploreBtn.addEventListener('click', function (e) {
+			var projectsSection = document.getElementById('two');
+			if (projectsSection) {
+				e.preventDefault();
+				projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		});
+	}
+
 	/* ---------- init ---------- */
 
 	if (!gridEl || !filtersEl || !projects.length) return;
