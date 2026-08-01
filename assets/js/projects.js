@@ -8,14 +8,14 @@
 		shipped: 'Shipped',
 		prototype: 'Prototype',
 		'technical-demo': 'Technical Demo',
-		community: 'Community'
+		extra: 'Extra'
 	};
 
 	var FILTERS = [
 		{ id: 'all', label: 'All' },
 		{ id: 'shipped', label: 'Shipped' },
-		{ id: 'prototype', label: 'Prototypes' },
-		{ id: 'technical-demo', label: 'Technical Demos' }
+		{ id: 'technical-demo', label: 'Technical Demos' },
+		{ id: 'extra', label: 'Extras' }
 	];
 
 	var projects = (window.PORTFOLIO_PROJECTS || []).slice();
@@ -208,7 +208,13 @@
 			return '<span class="project-chip">' + esc(t) + '</span>';
 		}).join('');
 
-		var paragraphs = (p.fullDescription || []).map(function (par) {
+		var tags = (p.tags || []).map(function (t) {
+			return '<span class="project-tag">' + esc(t) + '</span>';
+		}).join('');
+
+		var desc = p.fullDescription || [];
+		if (typeof desc === 'string') desc = [desc];
+		var paragraphs = desc.map(function (par) {
 			return '<p>' + esc(par) + '</p>';
 		}).join('');
 
@@ -238,6 +244,7 @@
 			'<p class="project-modal-short">' + esc(p.shortDescription) + '</p>' +
 			(chips ? '<div class="project-chips">' + chips + '</div>' : '') +
 			'<div class="project-modal-desc">' + paragraphs + '</div>' +
+			(tags ? '<div class="project-tags">' + tags + '</div>' : '') +
 			(actions ? '<div class="project-modal-actions">' + actions + '</div>' : '') +
 			'</div>' +
 			'</div>';

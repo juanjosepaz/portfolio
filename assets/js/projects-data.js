@@ -1,7 +1,7 @@
 /* Portfolio projects data.
  * Each project:
- *  - id, title, category ('shipped' | 'prototype' | 'technical-demo' | 'community')
- *  - platforms, role, technologies, shortDescription, fullDescription (array of paragraphs)
+ *  - id, title, category ('shipped' | 'technical-demo' | 'prototype' | 'extra')
+ *  - platforms, role, technologies, tags, shortDescription, fullDescription (array of paragraphs)
  *  - videoUrl (optional embed URL), coverImage, screenshots (array of image paths)
  *  - externalLink (optional), externalLabel
  */
@@ -12,12 +12,13 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'shipped',
 		platforms: ['Android'],
 		role: 'Lead Gameplay Programmer',
-		technologies: ['Unity', 'C#', 'URP', 'Firebase', 'PlayFab', 'AdMob'],
-		shortDescription: '3D hyper-casual puzzle game with one-touch controls, released on Google Play.',
+		technologies: ['Unity', 'C#', 'URP', 'Firebase', 'PlayFab', 'AdMob', 'OneSignal'],
+		tags: ['#Mobile', '#3D', '#ProceduralGeneration', '#GameplaySystems', '#Optimization'],
+		shortDescription: 'Mobile game where a ball descends a spiraling tower, switching between two realities to find the path forward.',
 		fullDescription: [
-			'Helix Tower 3D is a hyper-casual mobile game released on Google Play, built around quick one-hand play sessions with instant pick-up-and-play controls, a core requirement for the hyper-casual market.',
-			'As Lead Gameplay Programmer I owned the core gameplay loop and game feel, and integrated the full live-ops stack: Firebase for analytics and remote configuration, PlayFab for leaderboards and player data, and AdMob for rewarded and interstitial advertising.',
-			'Working with the Universal Render Pipeline, I optimized the project to keep load times short and frame rate stable across a wide range of Android devices.'
+			'Helix Tower 3D is a mobile game that reimagines the classic Helix Jump formula with a unique dual-reality twist. Players guide a ball down a spiraling tower, but can double-tap to switch between two parallel realities\u2014each with different platform layouts, power-ups, and hazards.',
+			'As Lead Gameplay Programmer, I architected and implemented all client-side systems including input, physics, procedural level generation (JSON/seed-based), economy, IAPs, save system, and daily challenges. I also built custom Unity Editor tools for the design team, reducing iteration time by ~30%, and integrated Firebase, PlayFab, AdMob, and OneSignal.',
+			'One of the biggest challenges was a critical bug that dropped FPS from 60 to 2 on Android devices. Using Unity\u2019s Profiler, I identified that an external URP asset was altering the global render pipeline settings. I resolved it by replicating the visual changes within our existing pipeline, restoring performance without sacrificing quality.'
 		],
 		coverImage: 'images/PortfolioImages/HelixTower/HelixTower-Cover.png',
 		screenshots: ['images/PortfolioImages/HelixTower/HelixTower-Cover.png'],
@@ -25,25 +26,40 @@ window.PORTFOLIO_PROJECTS = [
 		externalLabel: 'Play on Google Play'
 	},
 	{
+		id: 'bravepixelg',
+		title: 'BravePixelG',
+		category: 'shipped',
+		platforms: ['YouTube', 'Itch.io', 'Patreon'],
+		role: 'Creator & Educator',
+		technologies: ['YouTube', 'Unity', 'C#', 'Video Editing', 'Community Management'],
+		tags: ['#Education', '#Community', '#ContentCreation', '#YouTube', '#5Years'],
+		shortDescription: 'YouTube channel with 15,000+ subscribers featuring 150+ Unity tutorials, devlogs, and game development insights since 2021.',
+		fullDescription: [
+			'BravePixelG is my personal brand and YouTube channel, where I\u2019ve been sharing game development knowledge and experiences since 2021. With over 15,000 subscribers and 150+ videos, I\u2019ve built a community of Spanish-speaking developers learning Unity, C#, and game design principles.',
+			'The channel features a wide range of content including Unity tutorials (covering everything from basics to advanced topics like AI and optimization), devlogs documenting my game development process, and practical advice for aspiring developers. I\u2019ve also used this platform to showcase my games, share my journey, and connect with fellow developers worldwide.',
+			'Beyond YouTube, BravePixelG extends to Itch.io where I publish my games, and Patreon where I offer exclusive content and support. This project has been instrumental in developing my communication skills, technical teaching abilities, and community building\u2014skills that translate directly to technical leadership and mentorship in professional settings.'
+		],
+		coverImage: 'images/PortfolioImages/BravePixel/Logo3-BPG.png',
+		screenshots: ['images/PortfolioImages/BravePixel/Logo2-BPG.png', 'images/PortfolioImages/BravePixel/Background-BPG.png'],
+		externalLink: 'https://www.youtube.com/@BravePixelG',
+		externalLabel: 'Visit YouTube Channel'
+	},
+	{
 		id: 'castle-trap',
 		title: 'Castle Trap',
 		category: 'shipped',
 		platforms: ['Android'],
 		role: 'Lead Developer',
-		technologies: ['Unity', 'C#', '2D Physics'],
-		shortDescription: 'Hyper-casual 2D platformer. Jump, climb, and dodge traps in fast-paced levels. Released on Google Play.',
+		technologies: ['Unity', 'C#', 'Unity Ads', 'Aseprite', 'Audacity', 'Google Play Console'],
+		tags: ['#Mobile', '#2D', '#PixelArt', '#HyperCasual', '#SoloDev'],
+		shortDescription: '2D pixel art game where a trapped character dodges platforms and enemies in a deadly castle.',
 		fullDescription: [
-			'Castle Trap is a hyper-casual 2D platformer published on Google Play. Players jump, climb, and dodge traps across fast-paced levels designed for short, addictive sessions.',
-			'As Lead Developer I owned the project end to end: gameplay programming, 2D physics tuning, level design, and the launch pipeline including analytics, ads integration, and store publishing.'
+			'Castle Trap is a hyper-casual 2D platformer where the player is trapped in a simple castle with a fixed camera. Platforms rise from the floor and ceiling, threatening to crush the player against spikes, while enemies emerge from the walls. The goal is to survive as long as possible.',
+			'This was my first shipped game under the BravePixelG brand. I handled everything\u2014code, art (Aseprite), sound (Audacity), and integration of Unity Ads. I also managed the full Google Play release process, including licensing, console setup, and passing internal testing.',
+			'The most difficult part was passing Google Play\u2019s internal tests on Google Pixel devices due to Gradle and API level issues\u2014I resolved it by upgrading the Unity version and adjusting the build configuration.'
 		],
 		coverImage: 'images/PortfolioImages/CastleTrap/CastleTrap-Icon.png',
-		screenshots: [
-			'images/PortfolioImages/CastleTrap/CastleTrap-Banner.png',
-			'images/PortfolioImages/CastleTrap/CastleTrap-King.png',
-			'images/PortfolioImages/CastleTrap/CastleTrap-DontFall.png',
-			'images/PortfolioImages/CastleTrap/CastleTrap-PlayNow.png',
-			'images/PortfolioImages/CastleTrap/CastleTrap-UnklockAllCharacters.png'
-		],
+		screenshots: ['images/PortfolioImages/CastleTrap/CastleTrap-Banner.png', 'images/PortfolioImages/CastleTrap/CastleTrap-King.png', 'images/PortfolioImages/CastleTrap/CastleTrap-DontFall.png', 'images/PortfolioImages/CastleTrap/CastleTrap-PlayNow.png', 'images/PortfolioImages/CastleTrap/CastleTrap-UnklockAllCharacters.png'],
 		externalLink: 'https://play.google.com/store/apps/details?id=com.bravepixelg.castletrap',
 		externalLabel: 'Play on Google Play'
 	},
@@ -53,20 +69,16 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'shipped',
 		platforms: ['WebGL', 'PC'],
 		role: 'Lead Developer',
-		technologies: ['Unity', 'C#', 'Scriptable Objects', 'JSON'],
-		shortDescription: 'Match-3, turn-based roguelike. Combine tiles, upgrade units, and defeat enemy waves and bosses.',
+		technologies: ['Unity', 'C#', 'Unity Asset Store', 'Git', 'GitHub', 'WebGL', 'Itch.io'],
+		tags: ['#WebGL', '#2D', '#PixelArt', '#Match3', '#Roguelike', '#GameJam'],
+		shortDescription: 'Match-3 roguelike where each matched unit attacks enemies in turn-based combat.',
 		fullDescription: [
-			'Match & Slash is a match-3, turn-based roguelike where players combine tiles to upgrade units and defeat enemy waves and bosses. Released on Itch.io for WebGL and PC.',
-			'The game is built around a data-driven architecture using Scriptable Objects to define units, tiles, and upgrades, with a JSON-based save system. As Lead Developer I designed and implemented the core systems: matching logic, turn flow, enemy waves, and progression.'
+			'Match & Slash is a turn-based roguelike that combines match-3 mechanics with tactical combat. Players manage a grid of units in a match-3 battle\u2014each matched unit deals damage to enemies. After the player\u2019s turn, enemies attack back. Between rounds, players choose from roguelike upgrades (cards) to customize their run, and bosses with special abilities appear at the end of each level.',
+			'I developed this game from concept to release in just two weeks for the PirateSoftware Game Jam 2025, using the theme "You are the weapon." I handled all code, implementation, and deployment to Itch.io.',
+			'The biggest technical challenge was the unit spawning system. Units are placed on an 8x5 grid with 4 colors, but they couldn\u2019t create immediate horizontal or vertical matches. I developed a dynamic spawning algorithm that avoids match-3 conditions from the start while maintaining a fair distribution.'
 		],
 		coverImage: 'images/PortfolioImages/Match&Slash/Match&Slash-Logo.png',
-		screenshots: [
-			'images/PortfolioImages/Match&Slash/Match&Slash-Wave.png',
-			'images/PortfolioImages/Match&Slash/Match&Slash-Boss.png',
-			'images/PortfolioImages/Match&Slash/Match&Slash-Store.png',
-			'images/PortfolioImages/Match&Slash/Match&Slash-Boss2.png',
-			'images/PortfolioImages/Match&Slash/Match&Slash-Defeat.png'
-		],
+		screenshots: ['images/PortfolioImages/Match&Slash/Match&Slash-Wave.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Store.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss2.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Defeat.png'],
 		externalLink: 'https://bravepixelg.itch.io/matchslash',
 		externalLabel: 'Play on Itch.io'
 	},
@@ -76,21 +88,19 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'technical-demo',
 		platforms: ['PC'],
 		role: 'Gameplay Programmer',
-		technologies: ['Unity', 'C#', 'URP', 'State Machines', 'Zenject', 'NavMesh'],
-		shortDescription: '3D tactical RPG. Control monster squads in turn-based battles with strategy and positioning.',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'Animation Rigging', 'A* Algorithm', 'Scriptable Objects', 'Lean Tween'],
+		tags: ['#PC', '#3D', '#TacticalRPG', '#AI', '#Pathfinding', '#StateMachine'],
+		shortDescription: '3D tactical RPG where monster squads battle in turn-based grid combat with AI-driven enemy behavior.',
 		fullDescription: [
-			'Monster Tactics is a 3D tactical RPG prototype where players control monster squads in turn-based battles driven by strategy and positioning.',
-			'Built as a technical demo, it showcases clean architecture: the battle flow is managed with state machines, dependency injection with Zenject keeps the systems decoupled and testable, and NavMesh drives unit movement and pathfinding across the arena.'
+			'Monster Tactics is a functional 3D tactical RPG prototype where players control a squad of 3 monsters against an AI-controlled squad of 4. Combat is turn-based, with each unit able to move, attack, or use special abilities. The AI uses advanced decision-making based on distance, cover, and potential damage output.',
+			'I developed the entire technical foundation, including a grid-based movement system, turn management, and AI behavior. The AI evaluates multiple actions (movement, attack, ability usage) and selects the optimal sequence to maintain combat effectiveness while minimizing exposure.',
+			'The hardest part was optimizing the A* pathfinding algorithm while allowing dynamic obstacle destruction. When an obstacle is destroyed, the grid recalculates in real-time. I implemented a modified A* with efficient neighbor checking and combined it with a utility-based AI decision system that balances aggression, cover, and damage.'
 		],
 		videoUrl: 'https://www.youtube.com/embed/AIBdYmzDbAw',
 		coverImage: 'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-Icon.png',
-		screenshots: [
-			'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-CloseUp.png',
-			'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-Hit.png',
-			'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-EnemyTurn.png',
-			'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-MainGame.png',
-			'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-PlayerTurn.png'
-		]
+		screenshots: ['images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-CloseUp.png', 'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-Hit.png', 'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-EnemyTurn.png', 'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-MainGame.png', 'images/PortfolioImages/MonsterTacticsScreenshots/MonsterTactics-PlayerTurn.png'],
+		externalLink: 'https://youtu.be/AIBdYmzDbAw',
+		externalLabel: 'Watch on YouTube'
 	},
 	{
 		id: 'multiplayer-tanks',
@@ -98,20 +108,19 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'technical-demo',
 		platforms: ['PC'],
 		role: 'Gameplay Programmer',
-		technologies: ['Unity', 'C#', 'Netcode', 'Unity Relay', 'Lobby'],
-		shortDescription: 'Online multiplayer tank shooter. Matchmaking, team battles, and player-hosted sessions.',
+		technologies: ['Unity', 'C#', 'Unity Cloud', 'Unity Gaming Services', 'Netcode for GameObjects', 'Unity Relay', 'Lobby'],
+		tags: ['#PC', '#3D', '#Multiplayer', '#Networking', '#UnityServices', '#TechnicalDemo'],
+		shortDescription: 'Online multiplayer tank shooter with matchmaking, lobby system, and player-hosted or cloud-hosted sessions.',
 		fullDescription: [
-			'Multiplayer Tanks is an online multiplayer tank shooter prototype with matchmaking and team-based battles.',
-			'It explores Unity Netcode for GameObjects together with Unity Relay and the Lobby service to support player-hosted sessions without port forwarding, covering connection management, RPCs, and the full session lifecycle.'
+			'Multiplayer Tanks is a technical demo showcasing my experience with Unity\u2019s multiplayer ecosystem. Players control a tank in real-time battles, with support for matchmaking, lobby creation, and player-hosted sessions (using Unity Relay) as well as dedicated cloud-hosted servers.',
+			'I implemented the full multiplayer stack using Unity\u2019s Netcode for GameObjects for synchronization, Unity Relay for peer-to-peer connectivity, and Unity Lobby for matchmaking and session management. The project demonstrates my ability to build scalable, real-time multiplayer systems.',
+			'The biggest challenge was transitioning from a player-hosted model to a cloud-hosted dedicated server architecture. Ensuring a seamless handover when the host player left was critical\u2014I implemented a host migration system that preserves the game state and assigns a new host without interrupting gameplay.'
 		],
 		videoUrl: 'https://www.youtube.com/embed/m0Ocqm5MK-8',
 		coverImage: 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-Icon.png',
-		screenshots: [
-			'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-GamePlayTeam.png',
-			'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-MainMenu.png',
-			'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-Lobby.png',
-			'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-EditorGamePlay.png'
-		]
+		screenshots: ['images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-GamePlayTeam.png', 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-MainMenu.png', 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-Lobby.png', 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-EditorGamePlay.png'],
+		externalLink: 'https://youtu.be/m0Ocqm5MK-8',
+		externalLabel: 'Watch on YouTube'
 	},
 	{
 		id: 'clockedout',
@@ -119,19 +128,15 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'shipped',
 		platforms: ['WebGL', 'PC'],
 		role: 'Lead Developer',
-		technologies: ['Unity', 'C#', '2D Physics', 'Procedural Generation'],
-		shortDescription: 'Fast-paced dungeon crawler where your clock is your weapon, your lifeline, and sometimes your worst enemy.',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode'],
+		tags: ['#WebGL', '#2D', '#PixelArt', '#DungeonCrawler', '#GameJam'],
+		shortDescription: 'Dungeon crawler where a clock is your weapon, your lifeline, and sometimes your worst enemy.',
 		fullDescription: [
-			'ClockedOut is a fast-paced dungeon crawler where your clock is your weapon, your lifeline, and sometimes your worst enemy. Released on Itch.io for WebGL and PC.',
-			'As Lead Developer I built the game around 2D physics and procedural generation, creating levels that change on every run while keeping the timer-driven pressure of the core loop.'
+			'ClockedOut is a single-player browser game made in 4 days for the Game Maker\u2019s Toolkit Game Jam 2026. Players control a character in a dungeon, using a clock interface where each position triggers a different action. The clock\u2019s hand rotates, and pressing the button activates the highlighted ability. Players must defeat waves of enemies before time runs out, while enemies can disrupt the clock layout, forcing quick adaptation.',
+			'I developed all the code and some of the art, and the concept was original for the jam based on the theme "Count Down." The main challenge was maximizing game feel with limited time\u2014I focused on UI animations, visual feedback, and a responsive clock interface to make every action feel impactful.'
 		],
 		coverImage: 'images/PortfolioImages/ClockedOut/ClockedOut_Logo.png',
-		screenshots: [
-			'images/PortfolioImages/ClockedOut/ClockedOut_1.png',
-			'images/PortfolioImages/ClockedOut/ClockedOut_2.png',
-			'images/PortfolioImages/ClockedOut/ClockedOut_3.png',
-			'images/PortfolioImages/ClockedOut/ClockedOut_4.png'
-		],
+		screenshots: ['images/PortfolioImages/ClockedOut/ClockedOut_1.png', 'images/PortfolioImages/ClockedOut/ClockedOut_2.png', 'images/PortfolioImages/ClockedOut/ClockedOut_3.png', 'images/PortfolioImages/ClockedOut/ClockedOut_4.png'],
 		externalLink: 'https://bravepixelg.itch.io/clocked-out',
 		externalLabel: 'Play on Itch.io'
 	},
@@ -141,43 +146,18 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'shipped',
 		platforms: ['WebGL', 'PC'],
 		role: 'Lead Developer',
-		technologies: ['Unity', 'C#', '2D Physics', 'Day/Night Cycle'],
-		shortDescription: 'Defend the crystals and survive as many nights as you can. Plant and harvest seeds by day and fight at night.',
+		technologies: ['Unity', 'C#', 'VSCode', 'Git', 'GitHub'],
+		tags: ['#WebGL', '#2D', '#TowerDefense', '#Survival', '#GameJam'],
+		shortDescription: 'Tower defense where players plant and harvest seeds by day, and defend crystals at night.',
 		fullDescription: [
-			'Bloomguard is a survival strategy game where you defend the crystals and survive as many nights as you can. Plant and harvest seeds by day, fight waves of enemies when night falls. Released on Itch.io.',
-			'The day/night cycle is the heart of the game: it drives spawning, resource timing, and risk/reward decisions. As Lead Developer I implemented the cycle, the wave AI, and the 2D physics combat.'
+			'Bloomguard is a 2D tower defense game with a day/night cycle, created for the Latin American Game Showcase Game Jam 2025 (theme: "Ojos que no ven, coraz\u00f3n que no siente"). Players move freely across the map, planting seeds that can be harvested and used as weapons. By night, enemies attack the crystals, and players must use their plants strategically to defend.',
+			'I handled all code and game design, working with pre-made assets to deliver a polished prototype in a short timeframe. The game ranked 11th out of 139 entries in the "Fun & Gameplay" category.',
+			'The biggest challenge was integrating the planting, harvesting, and combat systems into a cohesive real-time experience where UI interactions are critical for survival.'
 		],
 		coverImage: 'images/PortfolioImages/Bloomguard/Bloomguard-Logo.png',
-		screenshots: [
-			'images/PortfolioImages/Bloomguard/Bloomguard-Day1.png',
-			'images/PortfolioImages/Bloomguard/Bloomguard-Heal.png',
-			'images/PortfolioImages/Bloomguard/Bloomguard-Attack.png',
-			'images/PortfolioImages/Bloomguard/Bloomguard-Day2.png',
-			'images/PortfolioImages/Bloomguard/Bloomguard-Destroy.png'
-		],
+		screenshots: ['images/PortfolioImages/Bloomguard/Bloomguard-Day1.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Heal.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Attack.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Day2.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Destroy.png'],
 		externalLink: 'https://bravepixelg.itch.io/bloomguard',
 		externalLabel: 'Play on Itch.io'
-	},
-	{
-		id: '3d-showcase',
-		title: '3D Showcase',
-		category: 'technical-demo',
-		platforms: ['PC'],
-		role: 'Developer',
-		technologies: ['Unity', 'C#', 'URP', 'Shader Graph', 'VFX'],
-		shortDescription: 'Collection of 3D prototypes focused on game feel, VFX, and post-processing using Unity 6.',
-		fullDescription: [
-			'3D Showcase is a collection of 3D prototypes focused on game feel, VFX, and post-processing, built with Unity 6 and the Universal Render Pipeline.',
-			'Each scene explores a different technique: Shader Graph materials, VFX particles, camera work, and post-processing stacks, all used to build polished, arcade-style gameplay moments.'
-		],
-		videoUrl: 'https://www.youtube.com/embed/vzVSP-HcZCM',
-		coverImage: 'images/PortfolioImages/3DShowcase/3DShowcase-Logo2.png',
-		screenshots: [
-			'images/PortfolioImages/3DShowcase/3DShowcase_Shooter.png',
-			'images/PortfolioImages/3DShowcase/3DShowcase_Space.png',
-			'images/PortfolioImages/3DShowcase/3DShowcase_King.png',
-			'images/PortfolioImages/3DShowcase/3DShowcase_DodgeShip.png'
-		]
 	},
 	{
 		id: 'dooroseum',
@@ -185,19 +165,37 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'shipped',
 		platforms: ['WebGL', 'PC'],
 		role: 'Lead Developer',
-		technologies: ['Unity', 'C#', '2D Physics'],
-		shortDescription: 'Top-down action shooter. Fight through waves of door-shaped enemies in a deadly coliseum.',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode'],
+		tags: ['#WebGL', '#2D', '#PixelArt', '#ActionShooter', '#GameJam'],
+		shortDescription: 'Top-down action shooter where players fight waves of door-shaped enemies in a deadly coliseum.',
 		fullDescription: [
-			'Dooroseum is a top-down action shooter where you fight through waves of door-shaped enemies in a deadly coliseum. Released on Itch.io for WebGL and PC.',
-			'As Lead Developer I built the combat, enemy waves, and 2D physics gameplay, polishing the game feel so every hit is readable and satisfying.'
+			'Dooroseum is a 2D pixel art game made for the Brackeys Game Jam 2024 (theme: "What\u2019s behind the door"). Players control a character with two weapons (pistol and shotgun) to defeat waves of door-shaped enemies in a coliseum. The final boss is a key that unlocks one of two doors to escape.',
+			'I developed all code and implemented visual assets created by a collaborator. The most challenging part was implementing a state machine for enemy behavior based on health thresholds, combined with a pathfinding system that allows enemies to track the player within the arena.'
 		],
 		coverImage: 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Icon.png',
-		screenshots: [
-			'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay1.png',
-			'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay2.png'
-		],
+		screenshots: ['images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay1.png', 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay2.png'],
 		externalLink: 'https://bravepixelg.itch.io/dooroseum',
 		externalLabel: 'Play on Itch.io'
+	},
+	{
+		id: '3d-showcase',
+		title: '3D Showcase',
+		category: 'extra',
+		platforms: ['PC'],
+		role: 'Developer',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode', 'GameDev.tv'],
+		tags: ['#PC', '#3D', '#URP', '#VFX', '#GameFeel'],
+		shortDescription: 'Collection of 3D prototypes focused on game feel, VFX, and post-processing using Unity URP.',
+		fullDescription: [
+			'3D Showcase is a compilation of four micro-projects developed during a course on 3D game development. It includes a space shooter, an infinite runner, a first-person shooter, and a Starfox-style rail shooter.',
+			'These prototypes demonstrate my ability to work with 3D gameplay, visual effects, post-processing, and Unity\u2019s Universal Render Pipeline (URP). I also explored timeline-based sequences and weapon switching mechanics.',
+			'While these are learning projects, they highlight my technical versatility and ability to quickly implement different gameplay styles.'
+		],
+		videoUrl: 'https://www.youtube.com/embed/vzVSP-HcZCM',
+		coverImage: 'images/PortfolioImages/3DShowcase/3DShowcase-Logo2.png',
+		screenshots: ['images/PortfolioImages/3DShowcase/3DShowcase_Shooter.png', 'images/PortfolioImages/3DShowcase/3DShowcase_Space.png', 'images/PortfolioImages/3DShowcase/3DShowcase_King.png', 'images/PortfolioImages/3DShowcase/3DShowcase_DodgeShip.png'],
+		externalLink: 'https://youtu.be/vzVSP-HcZCM',
+		externalLabel: 'Watch on YouTube'
 	},
 	{
 		id: 'space-diver',
@@ -205,102 +203,72 @@ window.PORTFOLIO_PROJECTS = [
 		category: 'shipped',
 		platforms: ['WebGL', 'PC'],
 		role: 'Lead Developer',
-		technologies: ['Unity', 'C#', '2D Physics', 'Procedural Generation'],
-		shortDescription: 'Hyper-casual descent game. Navigate a space cave full of enemies and hidden treasures.',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode'],
+		tags: ['#WebGL', '#2D', '#ProceduralGeneration', '#Platformer', '#GameJam'],
+		shortDescription: '2D platformer where an astronaut descends through a procedurally generated space cave.',
 		fullDescription: [
-			'Space Diver is a hyper-casual descent game where you navigate a space cave full of enemies and hidden treasures. Released on Itch.io.',
-			'No run plays the same twice: procedural generation and 2D physics create the cave layout, enemy placements, and collectibles for each dive.'
+			'Space Diver is a 2D platformer made for the Brackeys Game Jam 2023 (theme: "Diving deeper"). Players control an astronaut descending through a procedural space cave using a grappling hook to stick to walls, avoiding obstacles and enemies.',
+			'The game features infinite procedural level generation using object pooling to load and unload level segments seamlessly. I handled all code, implementation, and game design, while art was created by a collaborator.',
+			'The main technical challenge was creating a smooth procedural generation system that feels like a continuous experience rather than randomly spawned chunks.'
 		],
 		coverImage: 'images/PortfolioImages/SpaceDiver/SpaceDiver-Logo.png',
-		screenshots: [
-			'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay1.png',
-			'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay2.png',
-			'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay3.png'
-		],
+		screenshots: ['images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay1.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay2.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay3.png'],
 		externalLink: 'https://bravepixelg.itch.io/space-diver',
 		externalLabel: 'Play on Itch.io'
 	},
 	{
-		id: 'bravepixelg-youtube',
-		title: 'BravePixelG YouTube Channel',
-		category: 'community',
-		platforms: ['YouTube'],
-		role: 'Content Creator',
-		technologies: ['Unity', 'C#', 'Tutorials'],
-		shortDescription: 'YouTube channel with 14k+ subscribers. Tutorials on Unity and game development fundamentals.',
-		fullDescription: [
-			'BravePixelG is my YouTube channel with over 14,000 subscribers, dedicated to Unity and game development tutorials.',
-			'I create tutorials on C#, game systems, and game feel, sharing the techniques I use in my own projects with the community.'
-		],
-		coverImage: 'images/PortfolioImages/BravePixel/Logo3-BPG.png',
-		screenshots: [
-			'images/PortfolioImages/BravePixel/Logo2-BPG.png',
-			'images/PortfolioImages/BravePixel/Background-BPG.png'
-		],
-		externalLink: 'https://www.youtube.com/@BravePixelG',
-		externalLabel: 'Visit Channel'
-	},
-	{
 		id: 'heart-of-oak',
 		title: 'Heart of Oak',
-		category: 'shipped',
+		category: 'extra',
 		platforms: ['WebGL', 'PC'],
-		role: 'Developer',
-		technologies: ['Unity', 'C#'],
-		shortDescription: '2D roguelike adventure. Play as a forest guardian on a quest to recover ancient treasure.',
+		role: 'Lead Programmer & Team Lead',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode'],
+		tags: ['#WebGL', '#2D', '#Roguelike', '#TeamProject', '#PixelArt'],
+		shortDescription: '2D roguelike where a treant defends the forest heart against waves of adventurers.',
 		fullDescription: [
-			'Heart of Oak is a 2D roguelike adventure where you play as a forest guardian on a quest to recover ancient treasure.',
-			'Worked on gameplay programming with a focus on the map, exploration, and shop progression systems.'
+			'Heart of Oak is a 2D roguelike developed as part of a bootcamp in 2024, where I led a team of 4 developers. The player controls a treant that must navigate procedurally generated maps, fighting adventurers who seek to steal the forest\u2019s heart.',
+			'I served as lead programmer and team lead, coordinating tasks and integrating systems from different team members. I also implemented a procedural map generation system using weighted probabilities to create varied runs with enemies, shops, upgrades, and events.',
+			'The project taught me valuable leadership and collaboration skills.'
 		],
 		coverImage: 'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-Logo.png',
-		screenshots: [
-			'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-MainMenu.png',
-			'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-Map.png',
-			'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-Gameplay1.png',
-			'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-Shop.png'
-		],
+		screenshots: ['images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-MainMenu.png', 'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-Map.png', 'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-Gameplay1.png', 'images/PortfolioImages/HeartOfOakScreenShots/HeartOfOak-Shop.png'],
 		externalLink: 'https://flexcat.itch.io/the-hearth-of-oak',
 		externalLabel: 'Play on Itch.io'
 	},
 	{
 		id: 'arkanoid-clone',
-		title: 'Arkanoid (Clone)',
-		category: 'prototype',
+		title: 'Arkanoid Clone',
+		category: 'extra',
 		platforms: ['PC'],
 		role: 'Developer',
-		technologies: ['Unity', 'C#'],
-		shortDescription: 'One-week Arkanoid clone. A short prototype focused on physics and arcade-style gameplay.',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode'],
+		tags: ['#PC', '#2D', '#Arcade', '#Prototype', '#TechnicalTest'],
+		shortDescription: 'One-week Arkanoid clone focused on physics and arcade-style gameplay.',
 		fullDescription: [
-			'Arkanoid (Clone) is a one-week prototype built to practice physics-driven arcade gameplay.',
-			'The goal was to ship a complete, polished vertical slice in a single week: physics, level flow, scoring, and menu systems.'
+			'Arkanoid Clone is a prototype developed in under a week as part of a technical test. It includes 6 levels with classic layouts, power-ups, lives, and scoring.',
+			'I focused on recreating the original game\u2019s physics feel, ensuring the ball bounces predictably and avoids infinite loops. The project showcases my ability to deliver a polished prototype quickly and accurately replicate classic gameplay.'
 		],
-		videoUrl: 'https://www.youtube.com/embed/51NoCoBESGM',
 		coverImage: 'images/PortfolioImages/ArkanoidClone/Arkanoid_Logo.png',
-		screenshots: [
-			'images/PortfolioImages/ArkanoidClone/Arkanoid_MainMenu.png',
-			'images/PortfolioImages/ArkanoidClone/Arkanoid_LevelReady.png',
-			'images/PortfolioImages/ArkanoidClone/Arkanoid_GamePlay.png',
-			'images/PortfolioImages/ArkanoidClone/Arkanoid_SelectLevel.png'
-		]
+		screenshots: ['images/PortfolioImages/ArkanoidClone/Arkanoid_MainMenu.png', 'images/PortfolioImages/ArkanoidClone/Arkanoid_LevelReady.png', 'images/PortfolioImages/ArkanoidClone/Arkanoid_GamePlay.png', 'images/PortfolioImages/ArkanoidClone/Arkanoid_SelectLevel.png'],
+		externalLink: 'https://youtu.be/51NoCoBESGM',
+		externalLabel: 'Watch on YouTube'
 	},
 	{
 		id: 'game-feel-urp',
 		title: 'Game Feel URP',
-		category: 'prototype',
+		category: 'extra',
 		platforms: ['PC'],
 		role: 'Developer',
-		technologies: ['Unity', 'C#', 'URP'],
-		shortDescription: 'Prototype to experiment with Unity URP and gameplay feedback enhancements.',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode', 'GameDev.tv'],
+		tags: ['#PC', '#2D', '#URP', '#GameFeel', '#Learning'],
+		shortDescription: 'Prototype exploring Unity URP and gameplay feedback enhancements.',
 		fullDescription: [
-			'Game Feel URP is a prototype for experimenting with Unity\u2019s Universal Render Pipeline and gameplay feedback techniques.',
-			'It explores how visual effects, lighting, and camera work amplify player feedback, turning simple mechanics into satisfying moments.'
+			'Game Feel URP is a learning project from a course focused on enhancing game feel using Unity\u2019s Universal Render Pipeline. I worked with a pre-designed scene and character to implement visual feedback effects like screen shake, particle systems, and dynamic UI responses.',
+			'The project allowed me to experiment with post-processing, sprite masking, and persistent decals (like blood splatters on the ground). It\u2019s a technical exploration rather than a full game, but it demonstrates my understanding of URP and game feel principles.'
 		],
-		videoUrl: 'https://www.youtube.com/embed/4bam4RDjtF8',
 		coverImage: 'images/PortfolioImages/GameFeelScreenshots/GameFeel_Icon.png',
-		screenshots: [
-			'images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay1.png',
-			'images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay2.png',
-			'images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay3.png'
-		]
+		screenshots: ['images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay1.png', 'images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay2.png', 'images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay3.png'],
+		externalLink: 'https://youtu.be/4bam4RDjtF8',
+		externalLabel: 'Watch on YouTube'
 	}
 ];
