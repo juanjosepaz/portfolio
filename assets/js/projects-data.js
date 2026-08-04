@@ -57,6 +57,7 @@ window.PORTFOLIO_PROJECTS = [
 			'This was my first shipped game under the BravePixelG brand. I handled everything\u2014code, art (Aseprite), sound (Audacity), and integration of Unity Ads. I also managed the full Google Play release process, including licensing, console setup, and passing internal testing.'
 		],
 		coverImage: 'images/PortfolioImages/CastleTrap/CastleTrap-Icon.png',
+		devlogUrl: 'https://www.youtube.com/watch?v=86emc2RzJZU',
 		screenshots: ['images/PortfolioImages/CastleTrap/CastleTrap-Banner.png', 'images/PortfolioImages/CastleTrap/CastleTrap-King.png', 'images/PortfolioImages/CastleTrap/CastleTrap-DontFall.png', 'images/PortfolioImages/CastleTrap/CastleTrap-PlayNow.png', 'images/PortfolioImages/CastleTrap/CastleTrap-UnklockAllCharacters.png']
 	},
 	{
@@ -73,6 +74,7 @@ window.PORTFOLIO_PROJECTS = [
 			'I developed this game from concept to release in just two weeks, handling all code, implementation, and deployment to Itch.io.'
 		],
 		coverImage: 'images/PortfolioImages/Match&Slash/Match&Slash-Logo.png',
+		devlogUrl: 'https://www.youtube.com/watch?v=wyiNO_VJHbI',
 		screenshots: ['images/PortfolioImages/Match&Slash/Match&Slash-Wave.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Store.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss2.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Defeat.png'],
 		externalLink: 'https://bravepixelg.itch.io/matchslash',
 		externalLabel: 'Play on Itch.io'
@@ -124,6 +126,7 @@ window.PORTFOLIO_PROJECTS = [
 			'ClockedOut is a single-player browser game made in 4 days. Players control a character in a dungeon, using a clock interface where each position triggers a different action. The clock\u2019s hand rotates, and pressing the button activates the highlighted ability. Players must defeat waves of enemies before time runs out, while enemies can disrupt the clock layout, forcing quick adaptation.',
 			'I developed all the code and some of the art.'
 		],
+		videoUrl: 'https://www.youtube.com/embed/uO-wS0TlQiQ',
 		coverImage: 'images/PortfolioImages/ClockedOut/ClockedOut_Logo.png',
 		screenshots: ['images/PortfolioImages/ClockedOut/ClockedOut_1.png', 'images/PortfolioImages/ClockedOut/ClockedOut_2.png', 'images/PortfolioImages/ClockedOut/ClockedOut_3.png', 'images/PortfolioImages/ClockedOut/ClockedOut_4.png'],
 		externalLink: 'https://bravepixelg.itch.io/clocked-out',
@@ -143,6 +146,7 @@ window.PORTFOLIO_PROJECTS = [
 			'I handled all code and game design, working with pre-made assets to deliver a polished prototype in a short timeframe.'
 		],
 		coverImage: 'images/PortfolioImages/Bloomguard/Bloomguard-Logo.png',
+		devlogUrl: 'https://www.youtube.com/watch?v=cjbo9nZK5gs',
 		screenshots: ['images/PortfolioImages/Bloomguard/Bloomguard-Day1.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Heal.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Attack.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Day2.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Destroy.png'],
 		externalLink: 'https://bravepixelg.itch.io/bloomguard',
 		externalLabel: 'Play on Itch.io'
@@ -161,6 +165,7 @@ window.PORTFOLIO_PROJECTS = [
 			'I developed all code and implemented visual assets created by a collaborator.'
 		],
 		coverImage: 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Icon.png',
+		devlogUrl: 'https://www.youtube.com/watch?v=51MA72MWR6g',
 		screenshots: ['images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay1.png', 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay2.png'],
 		externalLink: 'https://bravepixelg.itch.io/dooroseum',
 		externalLabel: 'Play on Itch.io'
@@ -197,6 +202,7 @@ window.PORTFOLIO_PROJECTS = [
 			'The game features infinite procedural level generation using object pooling to load and unload level segments seamlessly. I handled all code, implementation, and game design, while art was created by a collaborator.'
 		],
 		coverImage: 'images/PortfolioImages/SpaceDiver/SpaceDiver-Logo.png',
+		devlogUrl: 'https://www.youtube.com/watch?v=ikgwTC9dohY',
 		screenshots: ['images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay1.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay2.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay3.png'],
 		externalLink: 'https://bravepixelg.itch.io/space-diver',
 		externalLabel: 'Play on Itch.io'
@@ -232,6 +238,7 @@ window.PORTFOLIO_PROJECTS = [
 			'Arkanoid Clone is a prototype developed in under a week as part of a technical test. It includes 6 levels with classic layouts, power-ups, lives, and scoring.',
 			'I focused on recreating the original game\u2019s physics feel, ensuring the ball bounces predictably and avoids infinite loops. The project showcases my ability to deliver a polished prototype quickly and accurately replicate classic gameplay.'
 		],
+		videoUrl: 'https://www.youtube.com/embed/51NoCoBESGM',
 		coverImage: 'images/PortfolioImages/ArkanoidClone/Arkanoid_Logo.png',
 		screenshots: ['images/PortfolioImages/ArkanoidClone/Arkanoid_MainMenu.png', 'images/PortfolioImages/ArkanoidClone/Arkanoid_LevelReady.png', 'images/PortfolioImages/ArkanoidClone/Arkanoid_GamePlay.png', 'images/PortfolioImages/ArkanoidClone/Arkanoid_SelectLevel.png']
 	},
@@ -248,6 +255,7 @@ window.PORTFOLIO_PROJECTS = [
 			'Game Feel URP is a learning project from a course focused on enhancing game feel using Unity\u2019s Universal Render Pipeline. I worked with a pre-designed scene and character to implement visual feedback effects like screen shake, particle systems, and dynamic UI responses.',
 			'The project allowed me to experiment with post-processing, sprite masking, and persistent decals (like blood splatters on the ground). It\u2019s a technical exploration rather than a full game, but it demonstrates my understanding of URP and game feel principles.'
 		],
+		videoUrl: 'https://www.youtube.com/embed/4bam4RDjtF8',
 		coverImage: 'images/PortfolioImages/GameFeelScreenshots/GameFeel_Icon.png',
 		screenshots: ['images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay1.png', 'images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay2.png', 'images/PortfolioImages/GameFeelScreenshots/GameFeel_GamePlay3.png']
 	}

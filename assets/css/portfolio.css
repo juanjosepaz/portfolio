@@ -291,6 +291,12 @@
 	background: #a06bd9;
 }
 
+.project-badge-devlog {
+	right: .75rem;
+	left: auto;
+	background: #e63946;
+}
+
 .project-card-body {
 	display: flex;
 	flex-direction: column;
