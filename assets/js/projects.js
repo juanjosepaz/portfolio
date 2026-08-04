@@ -15,7 +15,8 @@
 		{ id: 'all', label: 'All' },
 		{ id: 'shipped', label: 'Shipped' },
 		{ id: 'technical-demo', label: 'Technical Demos' },
-		{ id: 'extra', label: 'Extras' }
+		{ id: 'extra', label: 'Extras' },
+		{ id: 'devlog', label: 'Devlog' }
 	];
 
 	var projects = (window.PORTFOLIO_PROJECTS || []).slice();
@@ -81,7 +82,9 @@
 		FILTERS.forEach(function (filter, i) {
 			var count = filter.id === 'all'
 				? projects.length
-				: projects.filter(function (p) { return p.category === filter.id; }).length;
+				: projects.filter(function (p) {
+					return filter.id === 'devlog' ? !!p.devlogUrl : p.category === filter.id;
+				}).length;
 			html += '<button type="button" class="project-filter' + (i === 0 ? ' is-active' : '') +
 				'" data-filter="' + filter.id + '">' + filter.label +
 				' <span class="project-filter-count">' + count + '</span></button>';
@@ -109,7 +112,9 @@
 		window.setTimeout(function () {
 			var cards = gridEl.querySelectorAll('.project-card');
 			for (var j = 0; j < cards.length; j++) {
-				var show = filter === 'all' || cards[j].getAttribute('data-category') === filter;
+				var show = filter === 'all'
+					|| cards[j].getAttribute('data-category') === filter
+					|| (filter === 'devlog' && cards[j].getAttribute('data-devlog') === '1');
 				cards[j].style.display = show ? '' : 'none';
 			}
 			gridEl.classList.remove('is-fading');
@@ -122,10 +127,12 @@
 	function cardHTML(p) {
 		var tech = (p.technologies || []).slice(0, 4).map(esc).join(' \u00b7 ');
 		return '' +
-			'<article class="project-card" data-category="' + esc(p.category) + '" tabindex="0" ' +
+			'<article class="project-card" data-category="' + esc(p.category) + '"' +
+			(p.devlogUrl ? ' data-devlog="1"' : '') + ' tabindex="0" ' +
 			'role="button" aria-label="View details: ' + esc(p.title) + '">' +
 			'<div class="project-card-media" style="background-image:url(\'' + esc(p.coverImage) + '\')">' +
 			'<span class="project-badge project-badge-' + esc(p.category) + '">' + categoryLabel(p.category) + '</span>' +
+			(p.devlogUrl ? '<span class="project-badge project-badge-devlog">Devlog</span>' : '') +
 			'<img class="project-cover" src="' + esc(p.coverImage) + '" alt="' + esc(p.title) + ' cover" loading="lazy" decoding="async">' +
 			'<span class="project-card-view">View details &rarr;</span>' +
 			'</div>' +
@@ -222,6 +229,9 @@
 		if (p.externalLink) {
 			actions += '<a class="button primary" href="' + esc(p.externalLink) + '" target="_blank" rel="noopener">' +
 				esc(p.externalLabel || 'Play Game') + '</a>';
+		}
+		if (p.devlogUrl) {
+			actions += '<a class="button" href="' + esc(p.devlogUrl) + '" target="_blank" rel="noopener">Watch Devlog</a>';
 		}
 
 		return '' +
