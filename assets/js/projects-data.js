@@ -57,8 +57,11 @@ window.PORTFOLIO_PROJECTS = [
 			'This was my first shipped game under the BravePixelG brand. I handled everything\u2014code, art (Aseprite), sound (Audacity), and integration of Unity Ads. I also managed the full Google Play release process, including licensing, console setup, and passing internal testing.'
 		],
 		coverImage: 'images/PortfolioImages/CastleTrap/CastleTrap-Icon.png',
+		videoUrl: 'https://www.youtube.com/embed/DXPjSiQ3QZQ',
 		devlogUrl: 'https://www.youtube.com/watch?v=86emc2RzJZU',
-		screenshots: ['images/PortfolioImages/CastleTrap/CastleTrap-Banner.png', 'images/PortfolioImages/CastleTrap/CastleTrap-King.png', 'images/PortfolioImages/CastleTrap/CastleTrap-DontFall.png', 'images/PortfolioImages/CastleTrap/CastleTrap-PlayNow.png', 'images/PortfolioImages/CastleTrap/CastleTrap-UnklockAllCharacters.png']
+		screenshots: ['images/PortfolioImages/CastleTrap/CastleTrap-Banner.png', 'images/PortfolioImages/CastleTrap/CastleTrap-King.png', 'images/PortfolioImages/CastleTrap/CastleTrap-DontFall.png', 'images/PortfolioImages/CastleTrap/CastleTrap-PlayNow.png', 'images/PortfolioImages/CastleTrap/CastleTrap-UnklockAllCharacters.png'],
+		externalLink: 'https://play.google.com/store/apps/details?id=com.bravepixelg.castletrap',
+		externalLabel: 'Play on Google Play'
 	},
 	{
 		id: 'match-slash',
@@ -74,6 +77,7 @@ window.PORTFOLIO_PROJECTS = [
 			'I developed this game from concept to release in just two weeks, handling all code, implementation, and deployment to Itch.io.'
 		],
 		coverImage: 'images/PortfolioImages/Match&Slash/Match&Slash-Logo.png',
+		videoUrl: 'https://www.youtube.com/embed/rOqWqIIEfO8',
 		devlogUrl: 'https://www.youtube.com/watch?v=wyiNO_VJHbI',
 		screenshots: ['images/PortfolioImages/Match&Slash/Match&Slash-Wave.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Store.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss2.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Defeat.png'],
 		externalLink: 'https://bravepixelg.itch.io/matchslash',
@@ -146,6 +150,7 @@ window.PORTFOLIO_PROJECTS = [
 			'I handled all code and game design, working with pre-made assets to deliver a polished prototype in a short timeframe.'
 		],
 		coverImage: 'images/PortfolioImages/Bloomguard/Bloomguard-Logo.png',
+		videoUrl: 'https://www.youtube.com/embed/E4b1QLPD61E',
 		devlogUrl: 'https://www.youtube.com/watch?v=cjbo9nZK5gs',
 		screenshots: ['images/PortfolioImages/Bloomguard/Bloomguard-Day1.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Heal.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Attack.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Day2.png', 'images/PortfolioImages/Bloomguard/Bloomguard-Destroy.png'],
 		externalLink: 'https://bravepixelg.itch.io/bloomguard',
@@ -165,8 +170,9 @@ window.PORTFOLIO_PROJECTS = [
 			'I developed all code and implemented visual assets created by a collaborator.'
 		],
 		coverImage: 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Icon.png',
+		videoUrl: 'https://www.youtube.com/embed/JwERkAFCDu4',
 		devlogUrl: 'https://www.youtube.com/watch?v=51MA72MWR6g',
-		screenshots: ['images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay1.png', 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay2.png'],
+		screenshots: ['images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay1.png', 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay2.png', 'images/PortfolioImages/DooroseumScreenshots/Dooroseum-Gameplay3.png'],
 		externalLink: 'https://bravepixelg.itch.io/dooroseum',
 		externalLabel: 'Play on Itch.io'
 	},
@@ -202,6 +208,7 @@ window.PORTFOLIO_PROJECTS = [
 			'The game features infinite procedural level generation using object pooling to load and unload level segments seamlessly. I handled all code, implementation, and game design, while art was created by a collaborator.'
 		],
 		coverImage: 'images/PortfolioImages/SpaceDiver/SpaceDiver-Logo.png',
+		videoUrl: 'https://www.youtube.com/embed/fmL-LMmqv-E',
 		devlogUrl: 'https://www.youtube.com/watch?v=ikgwTC9dohY',
 		screenshots: ['images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay1.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay2.png', 'images/PortfolioImages/SpaceDiver/SpaceDiver-Gameplay3.png'],
 		externalLink: 'https://bravepixelg.itch.io/space-diver',
