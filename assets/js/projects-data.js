@@ -131,6 +131,7 @@ window.PORTFOLIO_PROJECTS = [
 			'I developed all the code and some of the art.'
 		],
 		videoUrl: 'https://www.youtube.com/embed/uO-wS0TlQiQ',
+		devlogUrl: 'https://www.youtube.com/watch?v=wRvb0pfhldg',
 		coverImage: 'images/PortfolioImages/ClockedOut/ClockedOut_Logo.png',
 		screenshots: ['images/PortfolioImages/ClockedOut/ClockedOut_1.png', 'images/PortfolioImages/ClockedOut/ClockedOut_2.png', 'images/PortfolioImages/ClockedOut/ClockedOut_3.png', 'images/PortfolioImages/ClockedOut/ClockedOut_4.png'],
 		externalLink: 'https://bravepixelg.itch.io/clocked-out',
