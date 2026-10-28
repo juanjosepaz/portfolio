@@ -3,7 +3,7 @@
  *  - id, title, category ('shipped' | 'technical-demo' | 'prototype' | 'extra')
  *  - platforms, role, technologies, tags, shortDescription, fullDescription (array of paragraphs)
  *  - videoUrl (optional embed URL), coverImage, screenshots (array of image paths)
- *  - externalLink (optional), externalLabel
+ *  - externalLink (optional), externalLabel, devlogUrl (optional)
  */
 window.PORTFOLIO_PROJECTS = [
 	{
@@ -42,6 +42,27 @@ window.PORTFOLIO_PROJECTS = [
 		screenshots: ['images/PortfolioImages/BravePixel/BravePixel-1.png', 'images/PortfolioImages/BravePixel/BravePixel-2.png'],
 		externalLink: 'https://www.youtube.com/@BravePixelG',
 		externalLabel: 'Visit YouTube Channel'
+	},
+	{
+		id: 'encore-witch',
+		title: 'Encore Witch',
+		category: 'shipped',
+		platforms: ['WebGL', 'PC'],
+		role: 'Solo Developer & Designer',
+		technologies: ['Unity', 'C#', 'Game Design', 'Systems Design', 'Balance & Tuning', 'UI/UX'],
+		tags: ['#GameJam', '#2D', '#PixelArt', '#GridCombat', '#Roguelike', '#WIP'],
+		shortDescription: 'Grid-based battler where you re-roll the abilities stolen from your enemies and adapt to an arena that changes between waves.',
+		fullDescription: [
+			'Encore Witch is a grid-based action battler inspired by Mega Man Battle Network, created in 48 hours for Game Jam Plus. Combat takes place on a battlefield split between the player\u2019s side and the enemy\u2019s side, with waves of monsters advancing while the floor layout changes between waves, opening empty gaps and raising obstacles that reshape the arena for the next encounter.',
+			'What sets the game apart is its ability system, where the player fights with three abilities taken from the enemies themselves and can re-roll them at any moment, turning improvisation and quick adaptation into the core of every encounter.',
+			'I built the entire project on my own, from the initial design and core implementation to the balance and the artistic elements. That included the grid and wave systems, the ability re-roll mechanic, the floor layout changes between waves, enemy behaviour and encounter pacing, as well as the UI and overall game feel. Most of the art comes from asset packs, which I selected, integrated and tuned to keep a coherent look within the jam\u2019s time limit.',
+			'Encore Witch is currently a work in progress. The 48-hour jam build is the foundation of the project, and it will be expanded during the Game Jam Plus incubation phase, where I plan to deepen the ability pool, refine the wave-based arena changes and polish the overall experience.'
+		],
+		videoUrl: 'https://www.youtube.com/embed/p7V1QZ7K76w',
+		coverImage: 'images/PortfolioImages/EncoreWitch/EncoreWitch-Logo.png',
+		screenshots: ['images/PortfolioImages/EncoreWitch/EncoreWitch-1.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-2.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-3.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-4.png'],
+		externalLink: 'https://bravepixelg.itch.io/encore-witch',
+		externalLabel: 'Play on Itch.io'
 	},
 	{
 		id: 'castle-trap',
