@@ -30,6 +30,7 @@
 	var currentScreenIndex = 0;
 	var lightboxTitle = '';
 	var filterAnimating = false;
+	var videoResizeHandler = null;
 
 	/* ---------- helpers ---------- */
 
@@ -293,6 +294,32 @@
 		var hasVideo = !!videoBox;
 		var screensStart = hasVideo ? 1 : 0;
 
+		/* YouTube elige la calidad segun el tamano del reproductor. Renderizamos el
+		 * iframe a 1920x1080 (o 1280x720 en pantallas pequenas) y lo escalamos al
+		 * hueco visible, para que arranque en la calidad mas alta disponible. */
+		function videoBaseSize() {
+			return window.matchMedia('(max-width: 1023px)').matches
+				? { width: 1280, height: 720 }
+				: { width: 1920, height: 1080 };
+		}
+
+		function sizeVideo() {
+			var frame = videoBox.querySelector('iframe');
+			if (!frame) return;
+			var box = videoBox.getBoundingClientRect();
+			if (!box.width || !box.height) return;
+			var base = videoBaseSize();
+			var scale = Math.max(box.width / base.width, box.height / base.height);
+			frame.style.width = base.width + 'px';
+			frame.style.height = base.height + 'px';
+			frame.style.right = 'auto';
+			frame.style.bottom = 'auto';
+			frame.style.transformOrigin = '0 0';
+			frame.style.transform = 'scale(' + scale + ')';
+			frame.style.left = ((box.width - base.width * scale) / 2) + 'px';
+			frame.style.top = ((box.height - base.height * scale) / 2) + 'px';
+		}
+
 		function buildVideo() {
 			var src = videoBox.getAttribute('data-video-url');
 			var sep = src.indexOf('?') === -1 ? '?' : '&';
@@ -301,7 +328,12 @@
 			frame.title = project.title + ' video';
 			frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
 			frame.setAttribute('allowfullscreen', '');
+			frame.addEventListener('load', sizeVideo);
 			videoBox.appendChild(frame);
+			sizeVideo();
+			if (videoResizeHandler) window.removeEventListener('resize', videoResizeHandler);
+			videoResizeHandler = sizeVideo;
+			window.addEventListener('resize', videoResizeHandler);
 		}
 
 		function startVideo() {
@@ -385,6 +417,10 @@
 		if (!modalEl) return;
 		modalEl.hidden = true;
 		modalEl.innerHTML = '';
+		if (videoResizeHandler) {
+			window.removeEventListener('resize', videoResizeHandler);
+			videoResizeHandler = null;
+		}
 		unlockScroll();
 		if (lastFocused && lastFocused.focus) lastFocused.focus();
 	}
