@@ -44,27 +44,6 @@ window.PORTFOLIO_PROJECTS = [
 		externalLabel: 'Visit YouTube Channel'
 	},
 	{
-		id: 'encore-witch',
-		title: 'Encore Witch',
-		category: 'shipped',
-		platforms: ['WebGL', 'PC'],
-		role: 'Solo Developer & Designer',
-		technologies: ['Unity', 'C#', 'Game Design', 'Systems Design', 'Balance & Tuning', 'UI/UX'],
-		tags: ['#GameJam', '#2D', '#PixelArt', '#GridCombat', '#Roguelike', '#WIP'],
-		shortDescription: 'Grid-based battler where you re-roll the abilities stolen from your enemies and adapt to an arena that changes between waves.',
-		fullDescription: [
-			'Encore Witch is a grid-based action battler inspired by Mega Man Battle Network, created in 48 hours for Game Jam Plus. Combat takes place on a battlefield split between the player\u2019s side and the enemy\u2019s side, with waves of monsters advancing while the floor layout changes between waves, opening empty gaps and raising obstacles that reshape the arena for the next encounter.',
-			'What sets the game apart is its ability system, where the player fights with three abilities taken from the enemies themselves and can re-roll them at any moment, turning improvisation and quick adaptation into the core of every encounter.',
-			'I built the entire project on my own, from the initial design and core implementation to the balance and the artistic elements. That included the grid and wave systems, the ability re-roll mechanic, the floor layout changes between waves, enemy behaviour and encounter pacing, as well as the UI and overall game feel. Most of the art comes from asset packs, which I selected, integrated and tuned to keep a coherent look within the jam\u2019s time limit.',
-			'Encore Witch is currently a work in progress. The 48-hour jam build is the foundation of the project, and it will be expanded during the Game Jam Plus incubation phase, where I plan to deepen the ability pool, refine the wave-based arena changes and polish the overall experience.'
-		],
-		videoUrl: 'https://www.youtube.com/embed/p7V1QZ7K76w',
-		coverImage: 'images/PortfolioImages/EncoreWitch/EncoreWitch-Logo.png',
-		screenshots: ['images/PortfolioImages/EncoreWitch/EncoreWitch-1.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-2.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-3.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-4.png'],
-		externalLink: 'https://bravepixelg.itch.io/encore-witch',
-		externalLabel: 'Play on Itch.io'
-	},
-	{
 		id: 'castle-trap',
 		title: 'Castle Trap',
 		category: 'shipped',
@@ -85,6 +64,26 @@ window.PORTFOLIO_PROJECTS = [
 		externalLabel: 'Play on Google Play'
 	},
 	{
+		id: 'clockedout',
+		title: 'ClockedOut',
+		category: 'shipped',
+		platforms: ['WebGL', 'PC'],
+		role: 'Lead Developer',
+		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode'],
+		tags: ['#WebGL', '#2D', '#PixelArt', '#DungeonCrawler'],
+		shortDescription: 'Dungeon crawler where a clock is your weapon, your lifeline, and sometimes your worst enemy.',
+		fullDescription: [
+			'ClockedOut is a single-player browser game made in 4 days. Players control a character in a dungeon, using a clock interface where each position triggers a different action. The clock\u2019s hand rotates, and pressing the button activates the highlighted ability. Players must defeat waves of enemies before time runs out, while enemies can disrupt the clock layout, forcing quick adaptation.',
+			'I developed all the code and some of the art.'
+		],
+		videoUrl: 'https://www.youtube.com/embed/uO-wS0TlQiQ',
+		devlogUrl: 'https://www.youtube.com/watch?v=wRvb0pfhldg',
+		coverImage: 'images/PortfolioImages/ClockedOut/ClockedOut_Logo.png',
+		screenshots: ['images/PortfolioImages/ClockedOut/ClockedOut_1.png', 'images/PortfolioImages/ClockedOut/ClockedOut_2.png', 'images/PortfolioImages/ClockedOut/ClockedOut_3.png', 'images/PortfolioImages/ClockedOut/ClockedOut_4.png'],
+		externalLink: 'https://bravepixelg.itch.io/clocked-out',
+		externalLabel: 'Play on Itch.io'
+	},
+	{
 		id: 'match-slash',
 		title: 'Match & Slash',
 		category: 'shipped',
@@ -102,6 +101,27 @@ window.PORTFOLIO_PROJECTS = [
 		devlogUrl: 'https://www.youtube.com/watch?v=wyiNO_VJHbI',
 		screenshots: ['images/PortfolioImages/Match&Slash/Match&Slash-Wave.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Store.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Boss2.png', 'images/PortfolioImages/Match&Slash/Match&Slash-Defeat.png'],
 		externalLink: 'https://bravepixelg.itch.io/matchslash',
+		externalLabel: 'Play on Itch.io'
+	},
+	{
+		id: 'encore-witch',
+		title: 'Encore Witch',
+		category: 'shipped',
+		platforms: ['WebGL', 'PC'],
+		role: 'Solo Developer & Designer',
+		technologies: ['Unity', 'C#', 'Game Design', 'Systems Design', 'Balance & Tuning', 'UI/UX'],
+		tags: ['#GameJam', '#2D', '#PixelArt', '#GridCombat', '#Roguelike', '#WIP'],
+		shortDescription: 'Grid-based battler where you re-roll the abilities stolen from your enemies and adapt to an arena that changes between waves.',
+		fullDescription: [
+			'Encore Witch is a grid-based action battler inspired by Mega Man Battle Network, created in 48 hours for Game Jam Plus. Combat takes place on a battlefield split between the player\u2019s side and the enemy\u2019s side, with waves of monsters advancing while the floor layout changes between waves, opening empty gaps and raising obstacles that reshape the arena for the next encounter.',
+			'What sets the game apart is its ability system, where the player fights with three abilities taken from the enemies themselves and can re-roll them at any moment, turning improvisation and quick adaptation into the core of every encounter.',
+			'I built the entire project on my own, from the initial design and core implementation to the balance and the artistic elements. That included the grid and wave systems, the ability re-roll mechanic, the floor layout changes between waves, enemy behaviour and encounter pacing, as well as the UI and overall game feel. Most of the art comes from asset packs, which I selected, integrated and tuned to keep a coherent look within the jam\u2019s time limit.',
+			'Encore Witch is currently a work in progress. The 48-hour jam build is the foundation of the project, and it will be expanded during the Game Jam Plus incubation phase, where I plan to deepen the ability pool, refine the wave-based arena changes and polish the overall experience.'
+		],
+		videoUrl: 'https://www.youtube.com/embed/p7V1QZ7K76w',
+		coverImage: 'images/PortfolioImages/EncoreWitch/EncoreWitch-Logo.png',
+		screenshots: ['images/PortfolioImages/EncoreWitch/EncoreWitch-1.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-2.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-3.png', 'images/PortfolioImages/EncoreWitch/EncoreWitch-4.png'],
+		externalLink: 'https://bravepixelg.itch.io/encore-witch',
 		externalLabel: 'Play on Itch.io'
 	},
 	{
@@ -137,26 +157,6 @@ window.PORTFOLIO_PROJECTS = [
 		videoUrl: 'https://www.youtube.com/embed/m0Ocqm5MK-8',
 		coverImage: 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-Icon.png',
 		screenshots: ['images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-GamePlayTeam.png', 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-MainMenu.png', 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-Lobby.png', 'images/PortfolioImages/MultiplayerTanks/MultiplayerTanks-EditorGamePlay.png']
-	},
-	{
-		id: 'clockedout',
-		title: 'ClockedOut',
-		category: 'shipped',
-		platforms: ['WebGL', 'PC'],
-		role: 'Lead Developer',
-		technologies: ['Unity', 'C#', 'Git', 'GitHub', 'VSCode'],
-		tags: ['#WebGL', '#2D', '#PixelArt', '#DungeonCrawler'],
-		shortDescription: 'Dungeon crawler where a clock is your weapon, your lifeline, and sometimes your worst enemy.',
-		fullDescription: [
-			'ClockedOut is a single-player browser game made in 4 days. Players control a character in a dungeon, using a clock interface where each position triggers a different action. The clock\u2019s hand rotates, and pressing the button activates the highlighted ability. Players must defeat waves of enemies before time runs out, while enemies can disrupt the clock layout, forcing quick adaptation.',
-			'I developed all the code and some of the art.'
-		],
-		videoUrl: 'https://www.youtube.com/embed/uO-wS0TlQiQ',
-		devlogUrl: 'https://www.youtube.com/watch?v=wRvb0pfhldg',
-		coverImage: 'images/PortfolioImages/ClockedOut/ClockedOut_Logo.png',
-		screenshots: ['images/PortfolioImages/ClockedOut/ClockedOut_1.png', 'images/PortfolioImages/ClockedOut/ClockedOut_2.png', 'images/PortfolioImages/ClockedOut/ClockedOut_3.png', 'images/PortfolioImages/ClockedOut/ClockedOut_4.png'],
-		externalLink: 'https://bravepixelg.itch.io/clocked-out',
-		externalLabel: 'Play on Itch.io'
 	},
 	{
 		id: 'bloomguard',
